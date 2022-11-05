@@ -1,0 +1,10 @@
+@import url(fontawesome-all.min.css);
+@import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
+
+#introduction_div {
+    text-align: left;
+}
+
+#introduction_div>h1 {
+    margin: 0;
+}
