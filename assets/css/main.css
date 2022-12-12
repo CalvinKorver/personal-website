@@ -99,7 +99,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: #F8F7F2;
+		/* background-color: #F8F7F2; */
 		/* background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
 		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
 		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
@@ -2820,6 +2820,10 @@ input, select, textarea {
 			padding: 0;
 		}
 
+		.features li.about {
+			width: calc(50% - 2em);
+		}
+
 			.features li:nth-child(1), .features li:nth-child(2), .features li:nth-child(3) {
 				margin-top: 0;
 			}
@@ -2830,7 +2834,7 @@ input, select, textarea {
 
 		@media screen and (max-width: 980px) {
 
-			.features li {
+			.features li, .features li.about  {
 				width: calc(50% - 2em);
 			}
 
@@ -2847,7 +2851,7 @@ input, select, textarea {
 				margin: 0 0 2em 0;
 			}
 
-				.features li {
+				.features li, .features li.about  {
 					width: 100%;
 					margin-left: 0;
 					margin-top: 2em;
@@ -3257,7 +3261,7 @@ input, select, textarea {
 			border-bottom-color: #dddddd;
 		}
 
-		#nav + #main {
+		#nav + .main_div {
 			padding-top: 4.25em;
 		}
 
@@ -3326,7 +3330,7 @@ input, select, textarea {
 				display: none;
 			}
 
-				#nav + #main {
+				#nav + .main_div {
 					padding-top: 0;
 				}
 
@@ -3334,218 +3338,218 @@ input, select, textarea {
 
 /* Main */
 
-	#main {
-		background-color: #ffffff;
+	.main_div {
+		
 		color: #636363;
 		border-radius: 0.25em;
 	}
 
-		#main input, #main select, #main textarea {
+		.main_div input, .main_div select, .main_div textarea {
 			color: #636363;
 		}
 
-		#main a:hover {
+		.main_div a:hover {
 			color: #636363;
 		}
 
-		#main strong, #main b {
+		.main_div strong, .main_div b {
 			color: #636363;
 		}
 
-		#main h1, #main h2, #main h3, #main h4, #main h5, #main h6 {
+		.main_div h1, .main_div h2, .main_div h3, .main_div h4, .main_div h5, .main_div h6 {
 			color: #636363;
 		}
 
-		#main blockquote {
+		.main_div blockquote {
 			border-left-color: #dddddd;
 		}
 
-		#main code {
+		.main_div code {
 			background: rgba(222, 222, 222, 0.25);
 			border-color: #dddddd;
 		}
 
-		#main hr {
+		.main_div hr {
 			border-bottom-color: #dddddd;
 		}
 
-		#main .box {
+		.main_div .box {
 			border-color: #dddddd;
 		}
 
-		#main input[type="submit"],
-		#main input[type="reset"],
-		#main input[type="button"],
-		#main button,
-		#main .button {
+		.main_div input[type="submit"],
+		.main_div input[type="reset"],
+		.main_div input[type="button"],
+		.main_div button,
+		.main_div .button {
 			background-color: transparent;
 			box-shadow: inset 0 0 0 1px #dddddd;
 			color: #636363 !important;
 		}
 
-			#main input[type="submit"]:hover,
-			#main input[type="reset"]:hover,
-			#main input[type="button"]:hover,
-			#main button:hover,
-			#main .button:hover {
+			.main_div input[type="submit"]:hover,
+			.main_div input[type="reset"]:hover,
+			.main_div input[type="button"]:hover,
+			.main_div button:hover,
+			.main_div .button:hover {
 				background-color: rgba(222, 222, 222, 0.25);
 			}
 
-			#main input[type="submit"]:active,
-			#main input[type="reset"]:active,
-			#main input[type="button"]:active,
-			#main button:active,
-			#main .button:active {
+			.main_div input[type="submit"]:active,
+			.main_div input[type="reset"]:active,
+			.main_div input[type="button"]:active,
+			.main_div button:active,
+			.main_div .button:active {
 				background-color: rgba(222, 222, 222, 0.5);
 			}
 
-			#main input[type="submit"].icon:before,
-			#main input[type="reset"].icon:before,
-			#main input[type="button"].icon:before,
-			#main button.icon:before,
-			#main .button.icon:before {
+			.main_div input[type="submit"].icon:before,
+			.main_div input[type="reset"].icon:before,
+			.main_div input[type="button"].icon:before,
+			.main_div button.icon:before,
+			.main_div .button.icon:before {
 				color: rgba(99, 99, 99, 0.25);
 			}
 
-			#main input[type="submit"].primary,
-			#main input[type="reset"].primary,
-			#main input[type="button"].primary,
-			#main button.primary,
-			#main .button.primary {
+			.main_div input[type="submit"].primary,
+			.main_div input[type="reset"].primary,
+			.main_div input[type="button"].primary,
+			.main_div button.primary,
+			.main_div .button.primary {
 				background-color: #8cc9f0;
 				color: #ffffff !important;
 				box-shadow: none;
 			}
 
-				#main input[type="submit"].primary:hover,
-				#main input[type="reset"].primary:hover,
-				#main input[type="button"].primary:hover,
-				#main button.primary:hover,
-				#main .button.primary:hover {
+				.main_div input[type="submit"].primary:hover,
+				.main_div input[type="reset"].primary:hover,
+				.main_div input[type="button"].primary:hover,
+				.main_div button.primary:hover,
+				.main_div .button.primary:hover {
 					background-color: #9acff2;
 				}
 
-				#main input[type="submit"].primary:active,
-				#main input[type="reset"].primary:active,
-				#main input[type="button"].primary:active,
-				#main button.primary:active,
-				#main .button.primary:active {
+				.main_div input[type="submit"].primary:active,
+				.main_div input[type="reset"].primary:active,
+				.main_div input[type="button"].primary:active,
+				.main_div button.primary:active,
+				.main_div .button.primary:active {
 					background-color: #7ec3ee;
 				}
 
-				#main input[type="submit"].primary.icon:before,
-				#main input[type="reset"].primary.icon:before,
-				#main input[type="button"].primary.icon:before,
-				#main button.primary.icon:before,
-				#main .button.primary.icon:before {
+				.main_div input[type="submit"].primary.icon:before,
+				.main_div input[type="reset"].primary.icon:before,
+				.main_div input[type="button"].primary.icon:before,
+				.main_div button.primary.icon:before,
+				.main_div .button.primary.icon:before {
 					color: #ffffff !important;
 				}
 
-		#main label {
+		.main_div label {
 			color: #636363;
 		}
 
-		#main input[type="text"],
-		#main input[type="password"],
-		#main input[type="email"],
-		#main select,
-		#main textarea {
+		.main_div input[type="text"],
+		.main_div input[type="password"],
+		.main_div input[type="email"],
+		.main_div select,
+		.main_div textarea {
 			background-color: rgba(222, 222, 222, 0.25);
 			border-color: #dddddd;
 		}
 
-			#main input[type="text"]:focus,
-			#main input[type="password"]:focus,
-			#main input[type="email"]:focus,
-			#main select:focus,
-			#main textarea:focus {
+			.main_div input[type="text"]:focus,
+			.main_div input[type="password"]:focus,
+			.main_div input[type="email"]:focus,
+			.main_div select:focus,
+			.main_div textarea:focus {
 				border-color: #8cc9f0;
 				box-shadow: 0 0 0 1px #8cc9f0;
 			}
 
-		#main select {
+		.main_div select {
 			background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='%23dddddd' /%3E%3C/svg%3E");
 		}
 
-			#main select option {
+			.main_div select option {
 				color: #636363;
 				background: #ffffff;
 			}
 
-		#main input[type="checkbox"] + label,
-		#main input[type="radio"] + label {
+		.main_div input[type="checkbox"] + label,
+		.main_div input[type="radio"] + label {
 			color: #636363;
 		}
 
-			#main input[type="checkbox"] + label:before,
-			#main input[type="radio"] + label:before {
+			.main_div input[type="checkbox"] + label:before,
+			.main_div input[type="radio"] + label:before {
 				background: rgba(222, 222, 222, 0.25);
 				border-color: #dddddd;
 			}
 
-		#main input[type="checkbox"]:checked + label:before,
-		#main input[type="radio"]:checked + label:before {
+		.main_div input[type="checkbox"]:checked + label:before,
+		.main_div input[type="radio"]:checked + label:before {
 			background-color: #636363;
 			border-color: #636363;
 			color: #ffffff;
 		}
 
-		#main input[type="checkbox"]:focus + label:before,
-		#main input[type="radio"]:focus + label:before {
+		.main_div input[type="checkbox"]:focus + label:before,
+		.main_div input[type="radio"]:focus + label:before {
 			border-color: #8cc9f0;
 			box-shadow: 0 0 0 1px #8cc9f0;
 		}
 
-		#main ::-webkit-input-placeholder {
+		.main_div ::-webkit-input-placeholder {
 			color: rgba(99, 99, 99, 0.25) !important;
 		}
 
-		#main :-moz-placeholder {
+		.main_div :-moz-placeholder {
 			color: rgba(99, 99, 99, 0.25) !important;
 		}
 
-		#main ::-moz-placeholder {
+		.main_div ::-moz-placeholder {
 			color: rgba(99, 99, 99, 0.25) !important;
 		}
 
-		#main :-ms-input-placeholder {
+		.main_div :-ms-input-placeholder {
 			color: rgba(99, 99, 99, 0.25) !important;
 		}
 
-		#main .formerize-placeholder {
+		.main_div .formerize-placeholder {
 			color: rgba(99, 99, 99, 0.25) !important;
 		}
 
-		#main .icon.major {
+		.main_div .icon.major {
 			border-color: #dddddd;
 		}
 
-			#main .icon.major:before {
+			.main_div .icon.major:before {
 				border-color: #dddddd;
 			}
 
-		#main .icon.alt {
+		.main_div .icon.alt {
 			border-color: #dddddd;
 			color: #636363;
 		}
 
-			#main .icon.alt:hover {
+			.main_div .icon.alt:hover {
 				background-color: rgba(222, 222, 222, 0.25);
 			}
 
-			#main .icon.alt:active {
+			.main_div .icon.alt:active {
 				background-color: rgba(222, 222, 222, 0.5);
 			}
 
-		#main ul.alt li {
+		.main_div ul.alt li {
 			border-top-color: #dddddd;
 		}
 
-		#main dl dt {
+		.main_div dl dt {
 			color: #636363;
 		}
 
-		#main header.major h2:after {
+		.main_div header.major h2:after {
 			background-color: #dddddd;
 			background-image: -moz-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 			background-image: -webkit-linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
@@ -3553,44 +3557,44 @@ input, select, textarea {
 			background-image: linear-gradient(90deg, #efa8b0, #a89cc8, #8cc9f0);
 		}
 
-		#main table tbody tr {
+		.main_div table tbody tr {
 			border-color: #dddddd;
 		}
 
-			#main table tbody tr:nth-child(2n + 1) {
+			.main_div table tbody tr:nth-child(2n + 1) {
 				background-color: rgba(222, 222, 222, 0.25);
 			}
 
-		#main table th {
+		.main_div table th {
 			color: #636363;
 		}
 
-		#main table thead {
+		.main_div table thead {
 			border-bottom-color: #dddddd;
 		}
 
-		#main table tfoot {
+		.main_div table tfoot {
 			border-top-color: #dddddd;
 		}
 
-		#main table.alt tbody tr td {
+		.main_div table.alt tbody tr td {
 			border-color: #dddddd;
 		}
 
-		#main .spotlight .image {
+		.main_div .spotlight .image {
 			border-color: #dddddd;
 		}
 
-		#main > .main {
-			padding: 5em 5em 3em 5em ;
+		.main_div > .main {
+			padding: 3em 5em 3em 3em ;
 			border-top: solid 1px #dddddd;
 		}
 
-			#main > .main:first-child {
+			.main_div > .main:first-child {
 				border-top: 0;
 			}
 
-			#main > .main > .image.main:first-child {
+			.main_div > .main > .image.main:first-child {
 				margin: -5em 0 5em -5em;
 				width: calc(100% + 10em);
 				border-top-right-radius: 0.25em;
@@ -3599,7 +3603,7 @@ input, select, textarea {
 				border-bottom-left-radius: 0;
 			}
 
-				#main > .main > .image.main:first-child img {
+				.main_div > .main > .image.main:first-child img {
 					border-top-right-radius: 0.25em;
 					border-top-left-radius: 0.25em;
 					border-bottom-right-radius: 0;
@@ -3608,11 +3612,11 @@ input, select, textarea {
 
 		@media screen and (max-width: 1280px) {
 
-			#main > .main {
+			.main_div > .main {
 				padding: 4em 4em 2em 4em ;
 			}
 
-				#main > .main > .image.main:first-child {
+				.main_div > .main > .image.main:first-child {
 					margin: -4em 0 4em -4em;
 					width: calc(100% + 8em);
 				}
@@ -3621,11 +3625,11 @@ input, select, textarea {
 
 		@media screen and (max-width: 980px) {
 
-			#main > .main {
+			.main_div > .main {
 				padding: 4em 3em 2em 3em ;
 			}
 
-				#main > .main > .image.main:first-child {
+				.main_div > .main > .image.main:first-child {
 					margin: -4em 0 4em -3em;
 					width: calc(100% + 6em);
 				}
@@ -3634,11 +3638,11 @@ input, select, textarea {
 
 		@media screen and (max-width: 736px) {
 
-			#main > .main {
+			.main_div > .main {
 				padding: 3em 2em 1em 2em ;
 			}
 
-				#main > .main > .image.main:first-child {
+				.main_div > .main > .image.main:first-child {
 					margin: -3em 0 2em -2em;
 					width: calc(100% + 4em);
 				}
@@ -3647,11 +3651,11 @@ input, select, textarea {
 
 		@media screen and (max-width: 480px) {
 
-			#main > .main {
+			.main_div > .main {
 				padding: 3em 1.5em 1em 1.5em ;
 			}
 
-				#main > .main > .image.main:first-child {
+				.main_div > .main > .image.main:first-child {
 					margin: -3em 0 1.5em -1.5em;
 					width: calc(100% + 3em);
 				}
@@ -3660,21 +3664,21 @@ input, select, textarea {
 
 		@media screen and (max-width: 360px) {
 
-			#main {
+			.main_div {
 				border-radius: 0;
 			}
 
-				#main > .main {
+				.main_div > .main {
 					padding: 2.5em 1em 0.5em 1em ;
 				}
 
-					#main > .main > .image.main:first-child {
+					.main_div > .main > .image.main:first-child {
 						margin: -2.5em 0 1.5em -1em;
 						width: calc(100% + 2em);
 						border-radius: 0;
 					}
 
-						#main > .main > .image.main:first-child img {
+						.main_div > .main > .image.main:first-child img {
 							border-radius: 0;
 						}
 
@@ -3763,16 +3767,16 @@ input, select, textarea {
 
 /* Wrapper */
 
-	#wrapper {
+	.wrapper {
 		width: 64em;
 		max-width: calc(100% - 4em);
 		margin: 0 auto;
-		background-color: #F8F7F2;
+		
 	}
 
 		@media screen and (max-width: 480px) {
 
-			#wrapper {
+			.wrapper {
 				max-width: calc(100% - 2em);
 			}
 
@@ -3780,7 +3784,7 @@ input, select, textarea {
 
 		@media screen and (max-width: 360px) {
 
-			#wrapper {
+			.wrapper {
 				max-width: 100%;
 			}
 

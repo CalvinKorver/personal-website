@@ -75,17 +75,17 @@
 
 				
 							
-							($nav_a).each(i => {
-								var element = $nav_a[i]
-								if (!element.classList.contains('active') && element.innerText.charAt(0) == "(") {
-									// element.innerText = 
-									element.innerText = element.innerText.substring(1, element.innerText.length - 1)
-								} 
-								if (element.classList.contains('active') && element.innerText.charAt(0) != "(") {
-									($this)[0].innerText = "( " + ($this)[0].innerText + " )"
-								}
+							// ($nav_a).each(i => {
+							// 	var element = $nav_a[i]
+							// 	if (!element.classList.contains('active') && element.innerText.charAt(0) == "(") {
+							// 		// element.innerText = 
+							// 		element.innerText = element.innerText.substring(1, element.innerText.length - 1)
+							// 	} 
+							// 	if (element.classList.contains('active') && element.innerText.charAt(0) != "(") {
+							// 		($this)[0].innerText = "( " + ($this)[0].innerText + " )"
+							// 	}
 							
-							});
+							// });
 							
 
 					})
@@ -94,12 +94,6 @@
 						var	$this = $(this),
 							id = $this.attr('href'),
 							$section = $(id);
-
-							console.log($this)
-							if ($this.hasClass('active')) {
-								
-								$this[0].innerText = "( " + $this[0].innerText + " )"
-							}
 
 
 						// No section for this link? Bail.
@@ -123,7 +117,13 @@
 
 									// No locked links? Deactivate all links and activate this section's one.
 										if ($nav_a.filter('.active-locked').length == 0) {
-											$nav_a.text('test')
+											
+											// console.log("activing")
+											// console.log($this[0].innerText)
+											// if (($this)[0].innerText.charAt(0) != "(") {
+											// 	($this)[0].innerText = "( " + ($this)[0].innerText + " )"
+											// }
+											
 											
 											$nav_a.removeClass('active');
 											$this.addClass('active');
