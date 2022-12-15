@@ -40,6 +40,10 @@
     background-color: #F8F7F2;
 }
 
+#about {
+  height: 90vh;
+}
+
 img#workday_image {
     width: 465px; 
     clip-path: inset(3% 20% 0% 5% round 25px);
