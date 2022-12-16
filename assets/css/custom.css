@@ -32,6 +32,10 @@
     text-align: left;
 }
 
+#about_me {
+  margin-left: calc(50% + 1em)
+}
+
 #hello_header {
   margin-top: 20%;
 }
@@ -57,11 +61,36 @@ filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8183F7", en
   height: 90vh;
 }
 
-img#workday_image {
-    width: 420px; 
-    clip-path: inset(3% 30% 0% 5% round 25px);
-    transform: translate(-20px,0px);
+img#uw_image {
+    width: 124px; 
+    flex-direction: row;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    padding-top: 15px;
+    padding-right: 5px;
+  
 }
+
+#logo_div > span {
+  padding: 10px;
+}
+
+div#logo_div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-right: 10%;
+}
+
+div#logo_div_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 
 span.shadow_wrap {
   filter: drop-shadow(-1px 4px 2px rgba(50, 50, 0, 0.5))
@@ -69,14 +98,17 @@ span.shadow_wrap {
 
 
 img#utexas_image {
-  width: 120px; 
-  transform: translate(260px, -10px);
+  width: 124px;
+  flex-direction: row;
+  display: block; 
+  padding-left: 5px;
+  /* transform: translate(260px, -10px); */
 }
 
 img#hackathon_image {
-  width: 300px; 
-  clip-path: inset(0% 1% 4% 9% round 25px);
-  transform: translate(-20px, -15px);
+  width: 370px; 
+  clip-path: inset(0% 6% 4% 6% round 25px);
+  transform: translate(0px, 0px);
 }
 
 /* Timeline */
@@ -181,6 +213,19 @@ img#hackathon_image {
     }
   }
   @media(max-width:767px){
+
+
+
+#about_me {
+  margin-left: 0
+}
+
+#header {
+  height: 70vh;
+}
+    div#logo_div {
+      margin-right: 0;
+    }
 
     h4.hide_smaller_display {
       display: none;
