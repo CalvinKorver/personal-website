@@ -131,6 +131,11 @@ input, select, textarea {
 		line-height: 1.65;
 	}
 
+	h2, h3 {
+		font-family: 'Lato', sans-serif;
+
+	}
+
 		@media screen and (max-width: 1680px) {
 
 			body, input, select, textarea {
@@ -2659,7 +2664,7 @@ input, select, textarea {
 				}
 
 		header.major p {
-			font-size: 1.25em;
+			font-size: 1em;
 			letter-spacing: -0.025em;
 		}
 
@@ -3085,7 +3090,7 @@ input, select, textarea {
 		}
 
 		#header p {
-			font-size: 1.25em;
+			font-size: 1em;
 			letter-spacing: -0.025em;
 		}
 
