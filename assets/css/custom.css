@@ -36,8 +36,19 @@
   margin-left: calc(50% + 1em)
 }
 
+
+
 #hello_header {
   margin-top: 20%;
+}
+
+#projects > p {
+  max-width: 50%;
+}
+
+section.special header.major h2:after, article.special header.major h2:after {
+  margin-left: 0;
+  margin-right: auto;
 }
 
 
@@ -214,7 +225,9 @@ img#hackathon_image {
   }
   @media(max-width:767px){
 
-
+    #about {
+      height: auto;
+    }
 
 #about_me {
   margin-left: 0
