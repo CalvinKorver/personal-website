@@ -36,6 +36,9 @@
   margin-left: calc(50% + 1em)
 }
 
+#projects > div.project-header-div > p {
+  max-width: 50%;
+}
 
 
 #hello_header {
@@ -83,6 +86,21 @@ img#uw_image {
     padding-right: 5px;
   
 }
+#projects > div > div > div.col-6.project > p {
+  margin-left: 0;
+}
+
+
+
+span.project-number {
+  font-family: 'Mogra', cursive;
+  font-size: 1.2em;
+  margin-right: .4em;
+}
+
+.project-header-div {
+  margin-bottom: 20%;
+}
 
 #logo_div > span {
   padding: 10px;
@@ -122,99 +140,36 @@ img#hackathon_image {
   transform: translate(0px, 0px);
 }
 
-/* Timeline */
-.timeline{
-    position:relative;
-    margin:50px auto;
-    padding: 0;
-    width:1000px;
-    box-sizing:border-box;
-  }
-  .timeline:before{
-    content:'';
-    position:absolute;
-    left:50%;
-    width:2px;
-    height:100%;
-    background:#c5c5c5;
-  }
-  .timeline ul{
-    padding:0;
-    margin:0;
-  }
-  .timeline ul li.timeline_entry{
-    list-style:none;
-    position:relative;
-    width:50%;
-    padding:10px 40px;
-    box-sizing:border-box;
-    float:right;
-    text-align:left;
-    clear:both;
-  }
-  
-  .content{
-    padding-bottom:20px;
-  }
+img#review_time {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
 
-  .timeline ul li.timeline_entry h3.position{
-    font-weight: 400;
-    font-size: 1.15em;
-  }
+div.row.project {
+  margin-top: 10%;
+}
 
-  .timeline ul li.timeline_entry:before
-  {
-    content:'';
-    position:absolute;
-    width:10px;
-    height:10px;
-    top:24px;
-    left:-4px;
-    background:rgba(233,33,99,1);
-    border-radius:50%;
-    box-shadow:0 0 0 3px rgba(233,33,99,0.2);
-  }
-  .timeline ul li.timeline_entry h3{
-    padding:0;
-    margin:0;
-
-    font-weight:600;
-  }
-  .timeline ul li.timeline_entry p{
-    margin:10px 0 0;
-    padding:0;
-    line-height: 1.2;
-  }
-  .timeline ul li.timeline_entry .time h3,
-  .timeline ul li.timeline_entry .time h4 {
-    margin:0;
-    padding:0;
-    font-size:18px;
-    
-  }
-  .timeline ul li.timeline_entry .time h3 {
-    font-weight: 400;
-      font-size: 24px;
-  }
-
-  .timeline ul li.timeline_entry .time
-  {
-    position:absolute;
-    top:12px;
-    left:-100%;
-    margin:0;
-    padding:8px 16px;
-    
-    color:#fff;
-    
-    
-  }
 
   h4.hide_larger_display {
     display: none;
   }
+
+  #projects {
+    text-align: left;
+  }
+
   @media(max-width:1000px)
   {
+
+    img#review_time {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+    }
+    
     .timeline{
       width:100%;
     }
@@ -224,6 +179,29 @@ img#hackathon_image {
     }
   }
   @media(max-width:767px){
+
+    #projects {
+      text-align: center;
+    }
+
+    #projects > div > div > div.col-6 {
+      width: 100%;
+    }
+
+    #projects > div > div > div.project {
+      width: 100%;
+      margin-left: 0;
+      text-align: center;
+    }
+
+    #projects > div.project-header-div > p {
+      max-width: 100%;
+      
+    }
+
+    .project-header-div {
+      margin-bottom: 3em;
+    }
 
     #about {
       height: auto;
