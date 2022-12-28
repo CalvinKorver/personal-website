@@ -17,13 +17,16 @@
 
 #intro_content > h1 {
   margin-bottom: 8%;
-  font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size: 3.5em;
 }
 
-#intro_content > p {
+/* #intro_content > p {
   font-size: larger;
+} */
+
+.blue-color {
+  color: #00628D;
 }
 
 
@@ -32,9 +35,6 @@
     text-align: left;
 }
 
-#about_me {
-  margin-left: calc(50% + 1em)
-}
 
 #projects > div.project-header-div > p {
   max-width: 50%;
@@ -60,19 +60,70 @@ section.special header.major h2:after, article.special header.major h2:after {
 }
 
 .color-background-section {
-  background: hsla(239, 88%, 74%, 1);
-
-background: linear-gradient(115deg, hsla(239, 88%, 74%, 1) 0%, hsla(0, 90%, 81%, 1) 52%, hsla(187, 100%, 89%, 1) 100%);
-
-background: -moz-linear-gradient(115deg, hsla(239, 88%, 74%, 1) 0%, hsla(0, 90%, 81%, 1) 52%, hsla(187, 100%, 89%, 1) 100%);
-
-background: -webkit-linear-gradient(115deg, hsla(239, 88%, 74%, 1) 0%, hsla(0, 90%, 81%, 1) 52%, hsla(187, 100%, 89%, 1) 100%);
-
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8183F7", endColorstr="#FAA2A2", GradientType=1 );
+  background: #E5E5E5;
 }
 
 #about {
-  height: 90vh;
+  min-height: 100vh;
+}
+
+div.blue-gradient-background {
+  background: rgb(0,98,141);
+  background: -moz-linear-gradient(180deg, rgba(0,98,141,1) 0%, rgba(0,25,44,1) 100%);
+  background: -webkit-linear-gradient(180deg, rgba(0,98,141,1) 0%, rgba(0,25,44,1) 100%);
+  background: linear-gradient(180deg, rgba(0,98,141,1) 0%, rgba(0,25,44,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00628d",endColorstr="#00192c",GradientType=1);
+}
+
+
+#about > div > div {
+  color: white;
+}
+
+li.about > p {
+  margin: 0 0 1em 0;
+}
+
+#about_me > h2 {
+  color: white;
+  font-size: 3.0em;
+  font-weight: 600;
+}
+
+#about > div > div {
+  padding-top: 6%;
+  padding-bottom: 6%;
+}
+
+div#white_line_element {
+  padding-right: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+ }
+
+div#white_line {
+  border-left: 2px solid white;
+  opacity: 90%;
+  color: white;
+  height: 100%;
+  
+}
+
+div#white_circle {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+}
+
+#about > div > div > ul {
+  opacity: 90%;
+}
+
+div.smaller_p > p {
+  font-size: 18px;
 }
 
 img#uw_image {
@@ -93,7 +144,6 @@ img#uw_image {
 
 
 span.project-number {
-  font-family: 'Mogra', cursive;
   font-size: 1.2em;
   margin-right: .4em;
 }
