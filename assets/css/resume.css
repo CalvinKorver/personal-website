@@ -1,0 +1,13 @@
+#canvas_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E5E5E5;
+  }
+
+  #the-canvas {
+    margin-top: 6%;
+    margin-bottom: 6%;
+  }
+
+
