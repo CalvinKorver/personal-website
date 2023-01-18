@@ -16,14 +16,35 @@
 }
 
 #intro_content > h1 {
-  margin-bottom: 8%;
+  margin-bottom: 1.25em;
   font-weight: 400;
   font-size: 3.5em;
+}
+
+.social-media-links {
+  margin-top: 2em;
 }
 
 /* #intro_content > p {
   font-size: larger;
 } */
+
+#linkedin-icon {
+  padding: .75em;
+  padding-left: 0;
+}
+
+/* #intro_content > a:nth-child(3) */
+
+#intro_content > div> .intro-a {
+  border-bottom: None;
+  color: #00628D;
+}
+
+#intro_content > h1 {
+  font-weight: 600;
+}
+
 
 .blue-color {
   color: #00628D;
@@ -38,6 +59,10 @@
 
 #projects > div.project-header-div > p {
   max-width: 50%;
+}
+
+#intro_content > div.row > div {
+  width: 50%;
 }
 
 
@@ -212,6 +237,14 @@ div.row.project {
 
   @media(max-width:1000px)
   {
+
+    #left {
+      display: none;
+    }
+
+    #intro_content > div.row > div {
+      width: 100%;
+    }
 
     img#review_time {
       display: block;

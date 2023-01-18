@@ -120,7 +120,7 @@ input, select, textarea {
 
 	body {
 		/* background-color: #935d8c; */
-		color: #0D2F40;
+		color: #00192C;
 	}
 
 	body, input, select, textarea {
@@ -314,7 +314,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #0D2F40;
+		color: #00192C;
 	}
 
 	blockquote {
@@ -3080,7 +3080,7 @@ input, select, textarea {
 		}
 
 		#header.alt {
-			padding: 7em 5em 4em 5em ;
+			padding: 15% 0em 4em 0em ;
 		}
 
 			#header.alt h1 {
