@@ -19,6 +19,11 @@ body {
   padding-bottom: 8rem;
 }
 
+a.link {
+  color: white;
+  text-decoration: none;
+}
+
 .button-container {
   /* margin-top: 2rem; */
   width: 400px;
