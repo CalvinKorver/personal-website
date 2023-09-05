@@ -19,34 +19,51 @@ body {
   padding-bottom: 8rem;
 }
 
+.fa-button-span {
+  margin-right: 4px;
+}
+
 a.link {
+  text-decoration: none;
+}
+
+a.link.button {
   color: white;
   text-decoration: none;
 }
 
 .button-container {
   /* margin-top: 2rem; */
-  width: 400px;
+  width: 375px;
   height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.secondary-color-button {
+  background-color: #8D2B00;
+}
+
+.primary-color-button {
+  background-color: #00628D;
+}
+
 
 .material-button {
+  height: 48px;
+  margin: 6px;
   display: inline-block;
   padding: 12px 24px;
   border: none;
   border-radius: 4px;
-  background-color: #00628D;
+
   color: #FFFFFF;
   font-size: 16px;
   font-weight: 500;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-
   transition: background-color 0.3s ease;
 }
 
@@ -108,4 +125,12 @@ footer > p {
 .svg-image {
   width: 3rem;
   height: auto;
+}
+
+#linkedin-svg-image {
+  transform: translateY(2px);
+  width: 1rem;
+  height: auto;
+  columns: white;
+  stroke: white;
 }
