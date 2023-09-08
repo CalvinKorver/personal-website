@@ -119,8 +119,8 @@ input, select, textarea {
 /* Type */
 
 	body {
-		/* background-color: #935d8c; */
-		color: #00192C;
+		
+		color: color:#262626;;
 	}
 
 	body, input, select, textarea {

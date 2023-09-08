@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Helvetica, 'Roboto', sans-serif;
   margin: 0;
@@ -8,7 +12,7 @@ body {
 }
 
 .container {
-  margin-top: 4rem;
+  margin-top: 5%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -18,6 +22,7 @@ body {
   padding: 0 5%; /* Updated horizontal padding for mobile */
   padding-bottom: 8rem;
 }
+
 
 .fa-button-span {
   margin-right: 4px;
@@ -30,36 +35,29 @@ a.link {
 a.link.button {
   color: white;
   text-decoration: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .button-container {
   /* margin-top: 2rem; */
-  width: 375px;
-  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.secondary-color-button {
-  background-color: #8D2B00;
+div.projects {
+  margin: 10%;
+  margin-top: 0;
 }
-
-.primary-color-button {
-  background-color: #00628D;
-}
-
 
 .material-button {
-  height: 48px;
-  margin: 6px;
-  display: inline-block;
-  padding: 12px 24px;
+  line-height: normal;
+  height: 50px;
+  display: inline-block;  
   border: none;
-  border-radius: 4px;
-
-  color: #FFFFFF;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 1.3rem;
   font-weight: 500;
   text-align: center;
   text-decoration: none;
@@ -80,16 +78,14 @@ a.link.button {
 
 
 h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 4rem;
+  margin-bottom: 0;
+  font-weight: 400;
 }
 
 .header-div {
-  margin-bottom: 2rem;
-}
-
-.blue-color {
-  color: #00628D;
+  margin-bottom: 15%;
+  margin-top: 15%;
 }
 
 p {
@@ -99,14 +95,6 @@ p {
   line-height: 1.4;
 }
 
-@media screen and (min-width: 600px) {
-  p {
-    max-width: 50vw;
-  }
-  /* .container {
-    padding-top: 0%;
-  } */
-}
 
 /* f */
 
@@ -123,7 +111,7 @@ footer > p {
 }
 
 .svg-image {
-  width: 3rem;
+  width: 3.5rem;
   height: auto;
 }
 
@@ -134,3 +122,93 @@ footer > p {
   columns: white;
   stroke: white;
 }
+
+.strong {
+  font-weight: 400;
+}
+
+@media screen and (min-width: 600px) {
+
+  .button-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  p.centered {
+    max-width: 50vw;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+
+  .header-div {
+  margin-bottom: 8%;
+  margin-top: 3%;
+  }
+
+  .container.full-height {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    
+  }
+
+  .svg-image {
+    width: 3.5rem;
+    height: auto;
+  }
+
+  a.link.button {
+    color: white;
+    text-decoration: none;
+    /* padding-left: 2rem;
+    padding-right: 2rem; */
+  }
+}
+
+
+
+.image-container {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px; /* You can adjust the height to your liking */
+}
+
+#job-finder-img {
+  max-width: 100%; /* Ensure the image does not exceed the container width */
+  max-height: 100%; /* Ensure the image does not exceed the container height */
+}
+
+.yellow-background {
+  background-color: #F2BF5E;
+}
+
+.off-white-background {
+  background-color: #F5F3EE;
+}
+
+.white-background {
+  background-color: white;
+}
+
+
+/* Color Theme Swatches in Hex */
+.yellow-color { color: #F2BF5E; }
+.grey-color { color: #D9D7D7; }
+.light-black-color {color: #262626}
+.black-color { color: #0D0D0D; }
+.dark-grey-color {color: #595959}
+
+
+/* 
+/* Color Theme Swatches in Hex */
+.Zelt-Website-Design-1-hex { color: #F2BF5E; }
+.Zelt-Website-Design-2-hex { color: #D9D0C7; }
+.Zelt-Website-Design-3-hex { color: #262626; }
+.Zelt-Website-Design-4-hex { color: #595959; }
+.Zelt-Website-Design-5-hex { color: #0D0D0D; } */
