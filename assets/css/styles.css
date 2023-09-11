@@ -127,7 +127,88 @@ footer > p {
   font-weight: 400;
 }
 
+.project-title {
+  font-size: 2em;
+}
+
+li {
+  margin-top: .5em;
+  font-size: 1.2rem;
+}
+
+p#last-job-finder {
+  margin-bottom: 0;
+}
+
+
+
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* You can adjust the height to your liking */
+}
+
+#job-finder-img {
+  max-width: 100%; /* Ensure the image does not exceed the container width */
+  max-height: 100%; /* Ensure the image does not exceed the container height */
+}
+
+img#time-management {
+  width: 100%;
+  padding: 10% 0%;
+}
+
+.yellow-background {
+  background-color: #F2BF5E;
+}
+
+.off-white-background {
+  background-color: #F5F3EE;
+}
+
+.white-background {
+  background-color: white;
+}
+
+
+/* Color Theme Swatches in Hex */
+.yellow-color { color: #F2BF5E; }
+.grey-color { color: #D9D7D7; }
+.light-black-color {color: #262626}
+.black-color { color: #0D0D0D; }
+.dark-grey-color {color: #595959}
+
+
+/* 
+/* Color Theme Swatches in Hex */
+/* .Zelt-Website-Design-1-hex { color: #F2BF5E; }
+.Zelt-Website-Design-2-hex { color: #D9D0C7; }
+.Zelt-Website-Design-3-hex { color: #262626; }
+.Zelt-Website-Design-4-hex { color: #595959; }
+.Zelt-Website-Design-5-hex { color: #0D0D0D; } */
+
 @media screen and (min-width: 600px) {
+
+  img#time-management {
+    
+    padding: 5% 10%;
+  }
+
+  p#last-job-finder {
+    margin-bottom: 2em;
+  }
+
+
+  li.lessons-learned {
+    margin-top: 1em;
+  }
+
+  .image-container {
+    margin: 2rem;
+    height: 400px; /* You can adjust the height to your liking */
+  }
 
   .button-container {
     margin-top: 2rem;
@@ -168,47 +249,3 @@ footer > p {
     padding-right: 2rem; */
   }
 }
-
-
-
-.image-container {
-  margin: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px; /* You can adjust the height to your liking */
-}
-
-#job-finder-img {
-  max-width: 100%; /* Ensure the image does not exceed the container width */
-  max-height: 100%; /* Ensure the image does not exceed the container height */
-}
-
-.yellow-background {
-  background-color: #F2BF5E;
-}
-
-.off-white-background {
-  background-color: #F5F3EE;
-}
-
-.white-background {
-  background-color: white;
-}
-
-
-/* Color Theme Swatches in Hex */
-.yellow-color { color: #F2BF5E; }
-.grey-color { color: #D9D7D7; }
-.light-black-color {color: #262626}
-.black-color { color: #0D0D0D; }
-.dark-grey-color {color: #595959}
-
-
-/* 
-/* Color Theme Swatches in Hex */
-.Zelt-Website-Design-1-hex { color: #F2BF5E; }
-.Zelt-Website-Design-2-hex { color: #D9D0C7; }
-.Zelt-Website-Design-3-hex { color: #262626; }
-.Zelt-Website-Design-4-hex { color: #595959; }
-.Zelt-Website-Design-5-hex { color: #0D0D0D; } */

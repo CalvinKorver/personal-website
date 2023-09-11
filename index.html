@@ -18,9 +18,22 @@
 			<h1>Hi there, I'm <span class="brighter-yellow-color">Calvin</span>  <img class="svg-image" src="images/hand-wave.svg" alt="Hand Wave emoji">
 			</h1>
 		</div>
+		<p class="centered">
+			At Workday, I enhanced application features for the Time Management team, developed and researched a cross-team machine learning application for anomaly detection, and mentored new developers.
+		</p>
+
+		<p class="centered">
+			Currently, I'm enrolled in the Master of Science in Computer Science program at the University of Texas in Austin.
+		</p>
 
 
-		<p class="centered">I'm a software engineer with 3+ years of industry experience. I've worked on projects like
+		<p class="centered">
+			I'm focused on courses and projects involving deep learning, natural language processing, and applications that are accessible to all users. Feel free to check out some of my projects below!
+		</p>
+
+		</p>
+<!-- 
+		<p >I'm a software engineer with 3+ years of industry experience. I've worked on projects like
 			Time Anomalies, a machine-learning infused
 			feature currently deployed to over 250 customers using <a class="link"
 				href="https://www.workday.com/en-ca/products/workforce-management/time.html">
@@ -31,7 +44,7 @@
 			graduating in December 2023. <br>
 			<br> I'm interested in large generative ML models and using AI to make our lives more efficient and
 			fulfilling.
-		</p>
+		</p> -->
 		<div class="button-container">
 			<a class="link button" href="https://www.linkedin.com/in/cjkorver/">
 				<button class="material-button yellow-background">
@@ -71,8 +84,46 @@
 				<h1>Projects</h1>
 				<p>Some recent projects that I've worked on...</p>
 			</header>
-			<section class="project-content">
-				<h2>Job Matcher</h2>
+
+
+			<section id="time-anomalies" class="project-content">
+				<h2 class="project-title">Time Anomalies | Workday</h2>
+				<div class="tools-frameworks">
+					<span class="tools strong">Tools & frameworks:</span>
+					<p> Jupyter, Xpresso (Java-based OOP language)</p>
+				</div>
+				<span class="strong">
+					Overview
+				</span>
+				<p>Millions of users enter hourly time during their shift every week using time management software. While most of the data entered reflects the actual worked time, mistakes are always possible. As part of the time approval process, managers and timekeepers spend valuable hours verifying user input.<sup class="footnote">1</sup>
+					<br>
+					<br>
+					As part of the Time and Scheduling Hub for managers, Workday Time Anomalies automatically reveals possible time-entry errors and alerts managers about unusual time entries. The goal is to save time and improve payroll and labor cost accuracy.<sup class="footnote">2</sup>
+					<br>
+					<br>
+					At Workday, I built out components of the Time Anomalies feature in collaboration with our machine learning team that would allow managers to detect these unusual time entries. I also worked to enhance the delivery of this information to users with the Time Approval Summary filters, which allows managers and supervisors to easily discern and sort through descrepancies with their worker's time. 
+					<br>
+					<br>
+					To complete this project, I worked to ensure delivery of both features through an early adopter phase of limited customer opt-in to full general availability for all Time Tracking customers in Workday 2021.
+					<br>
+					<br>
+					<span class="strong">
+						Cited Information & details
+					</span>
+					<br>
+				
+								1. <a href="https://www.workday.com/en-us/products/workforce-management/time.html">Workday Time Management</a>
+							
+							<br>
+								2. <a href="https://blog.workday.com/en-us/2023/workforce-management-what-know-when-choosing-wfm-solution.html#:~:text=Time%20anomalies%3A%20As%20part%20of,payroll%20and%20labor%20cost%20accuracy">Workday Payroll & Time Blog Post</a>
+							
+	
+					<img id="time-management" src="images/time-management.png" alt="">
+				</p>
+			</section>
+
+			<section id="job-matcher="project-content">
+				<h2 class="project-title">Job Matcher | Project</h2>
 				<div class="tools-frameworks">
 					<span class="tools strong">Tools & frameworks:</span>
 					<p> Python, NLP, SpaCy, Scrapy, AWS Ec2</p>
@@ -100,18 +151,20 @@
 					Architecture
 				</span>	
 
-				<p>The application consists of several main components: The flask server handles the client interaction including user identification and metadata persistence (resume, email, etc.). To communicate with the MongoDB cluster, we exposed pathways via FastAPI to allow for new user creation, updating of user details, and getting the latest matched resumes. Depending on which API pathway is called, we utilize the SpaCy NLP library to look for skills in the jobs and calculate semantic similarity with the user's information.</p>
+				<p id="last-job-finder">The application consists of several main components: The flask server handles the client interaction including user identification and metadata persistence (resume, email, etc.). To communicate with the MongoDB cluster, we exposed pathways via FastAPI to allow for new user creation, updating of user details, and getting the latest matched resumes. Depending on which API pathway is called, we utilize the SpaCy NLP library to look for skills in the jobs and calculate semantic similarity with the user's information.</p>
 				<div class="image-container">
 					<img id='job-finder-img' src="/images/JobFinder.png" alt="">
 				</div>
 				
 				
 				<span class="strong">
-					Lessons Learned
+					Lessons Learned / Challenges
 				</span>
-				<p>
-					A major difficulty with our project was determining an optimal flow of the
-				</p>
+				<ul>
+					<li class="lessons-learned">Balancing application performance and functionality: The job scraping and matching for users involved compute-intensive operations. Using asychronous data processing not only alleviated server load but also improved the user experience.</li>
+					<li class="lessons-learned">Choosing and configuring a lightweight database: A NoSQL database would allow us to quickly update user's jobs and delete old ones. It would also allow flexibility to change our schema as we prototyped.</li>
+					<li class="lessons-learned">Algorithmic Choices: Tuning the machine learning's semantic matching ability and mixing it with programatic rules that boosted key-word matching involved trial and error.</li>
+				</ul>
 			</section>
 		</div>
 	</div>
