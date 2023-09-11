@@ -1,38 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Personal Website</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calvin Korver</title>
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+	<script src="functions.js"></script>
 </head>
+
 <body>
-  <div class="container">
-	<div class="header-div">
-    <h1>Hi there, I'm <span class="blue-color">Calvin</span>   <img class="svg-image" src="images/hand-wave.svg" alt="SVG Image">
-	</h1>
-</div>
-	
-    <p>I'm a software engineer with 3+ years of industry experience. I've worked on projects like Time Anomalies, a machine-learning infused
-		 feature currently deployed to over 150 customers.
-	</p>
-	<p>Currently, I'm studying graduate computer science at the University of Texas Austin graduating in December 2023. <br> 
-		<br> I'm interested in large generative ML models and using AI to make our lives more efficient and fulfilling.</p>
-	<div class="button-container">
-		<!-- <button class="material-button">Projects</button> -->
-		<button class="material-button">
-			<a class="link" href="https://www.linkedin.com/in/cjkorver/">
-				LinkedIn
+	<div class="container full-height">
+		<div class="header-div">
+			<h1>Hi there, I'm <span class="brighter-yellow-color">Calvin</span>  <img class="svg-image" src="images/hand-wave.svg" alt="Hand Wave emoji">
+			</h1>
+		</div>
+		<p class="centered">
+			At Workday, I enhanced application features for the Time Management team, developed and researched a cross-team machine learning application for anomaly detection, and mentored new developers.
+		</p>
+
+		<p class="centered">
+			Currently, I'm enrolled in the Master of Science in Computer Science program at the University of Texas in Austin.
+		</p>
+
+
+		<p class="centered">
+			I'm focused on courses and projects involving deep learning, natural language processing, and applications that are accessible to all users. Feel free to check out some of my projects below!
+		</p>
+
+		</p>
+<!-- 
+		<p >I'm a software engineer with 3+ years of industry experience. I've worked on projects like
+			Time Anomalies, a machine-learning infused
+			feature currently deployed to over 250 customers using <a class="link"
+				href="https://www.workday.com/en-ca/products/workforce-management/time.html">
+				Workday
+			</a> software.
+		</p>
+		<p class="centered">Currently, I'm studying graduate computer science at the University of Texas Austin
+			graduating in December 2023. <br>
+			<br> I'm interested in large generative ML models and using AI to make our lives more efficient and
+			fulfilling.
+		</p> -->
+		<div class="button-container">
+			<a class="link button" href="https://www.linkedin.com/in/cjkorver/">
+				<button class="material-button yellow-background">
+					<!-- <span class="fa-button-span">
+						<svg id='linkedin-svg-image' xmlns="http://www.w3.org/2000/svg" height="1em"
+							viewBox="0 0 448 512">
+							<style>
+								svg {
+									fill: #ffffff
+								}
+							</style>
+							<path
+								d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+						</svg>
+					</span> -->
+					<span class="light-black-color">
+						Linkedin
+					</span>
+				</button>
 			</a>
-		</button>
-	  </div>	  
-  </div>
-  <i class="far fa-hand-wave"></i>
-  <footer class="footer">
-    <p>Much of this website was created using a generative model (GPT-3.5) <i class="far fa-smile"></i>
-	</p>
-  </footer>
+
+			<a class="link button" onclick="scrollToDiv('projects-anchor')">
+
+				<button class="material-button yellow-background ">
+					<!-- <span class="fa-button-span">
+						<i class="fa fa-hammer"></i>
+					</span> -->
+					<span class="light-black-color">Projects</span>
+
+				</button>
+			</a>
+		</div>
+	</div>
+	<div id="projects-anchor" class="projects-div off-white-background">
+		<div class="projects">
+			<header id="header">
+				<h1>Projects</h1>
+				<p>Some recent projects that I've worked on...</p>
+			</header>
+
+
+			<section id="time-anomalies" class="project-content">
+				<h2 class="project-title">Time Anomalies | Workday</h2>
+				<div class="tools-frameworks">
+					<span class="tools strong">Tools & frameworks:</span>
+					<p> Jupyter, Xpresso (Java-based OOP language)</p>
+				</div>
+				<span class="strong">
+					Overview
+				</span>
+				<p>Millions of users enter hourly time during their shift every week using time management software. While most of the data entered reflects the actual worked time, mistakes are always possible. As part of the time approval process, managers and timekeepers spend valuable hours verifying user input.<sup class="footnote">1</sup>
+					<br>
+					<br>
+					As part of the Time and Scheduling Hub for managers, Workday Time Anomalies automatically reveals possible time-entry errors and alerts managers about unusual time entries. The goal is to save time and improve payroll and labor cost accuracy.<sup class="footnote">2</sup>
+					<br>
+					<br>
+					At Workday, I built out components of the Time Anomalies feature in collaboration with our machine learning team that would allow managers to detect these unusual time entries. I also worked to enhance the delivery of this information to users with the Time Approval Summary filters, which allows managers and supervisors to easily discern and sort through descrepancies with their worker's time. 
+					<br>
+					<br>
+					To complete this project, I worked to ensure delivery of both features through an early adopter phase of limited customer opt-in to full general availability for all Time Tracking customers in Workday 2021.
+					<br>
+					<br>
+					<span class="strong">
+						Cited Information & details
+					</span>
+					<br>
+				
+								1. <a href="https://www.workday.com/en-us/products/workforce-management/time.html">Workday Time Management</a>
+							
+							<br>
+								2. <a href="https://blog.workday.com/en-us/2023/workforce-management-what-know-when-choosing-wfm-solution.html#:~:text=Time%20anomalies%3A%20As%20part%20of,payroll%20and%20labor%20cost%20accuracy">Workday Payroll & Time Blog Post</a>
+							
+	
+					<img id="time-management" src="images/time-management.png" alt="">
+				</p>
+			</section>
+
+			<section id="job-matcher="project-content">
+				<h2 class="project-title">Job Matcher | Project</h2>
+				<div class="tools-frameworks">
+					<span class="tools strong">Tools & frameworks:</span>
+					<p> Python, NLP, SpaCy, Scrapy, AWS Ec2</p>
+				</div>
+				<span class="strong">
+					Overview
+				</span>
+				<p>This project was inspired by a friend who came to me with a problem. Recently laid off from a large
+					Seattle-area tech company, he was looking for a new job.
+					While there were many services to help find jobs, finding a good match with unique skills and
+					experiences required many hours manually parsing job descriptions for a good fit.
+					<br>
+					<br>
+					What if there was a service that could process and match your resume with related jobs and deliver a ranked list of results daily to aid your job search?
+					<br>
+					<br>
+					With that idea in mind, we worked together to create Job Matcher, a service that scraped job posting
+					websites and used natural language processing to compute similarities between the postings and user
+					resumes. It would prioritize skills (for example, Ruby or AWS Sagemaker) and return to the user a
+					set of matched jobs ranked by the machine learning model's scoring criteria daily. The job
+					position scraping and matching would be automated via a daily asyncronous API call to an EC2 instance so by the time
+					the user logged in, the results would already be persisted and presented to them on the client side.
+				</p>
+				<span class="strong">
+					Architecture
+				</span>	
+
+				<p id="last-job-finder">The application consists of several main components: The flask server handles the client interaction including user identification and metadata persistence (resume, email, etc.). To communicate with the MongoDB cluster, we exposed pathways via FastAPI to allow for new user creation, updating of user details, and getting the latest matched resumes. Depending on which API pathway is called, we utilize the SpaCy NLP library to look for skills in the jobs and calculate semantic similarity with the user's information.</p>
+				<div class="image-container">
+					<img id='job-finder-img' src="/images/JobFinder.png" alt="">
+				</div>
+				
+				
+				<span class="strong">
+					Lessons Learned / Challenges
+				</span>
+				<ul>
+					<li class="lessons-learned">Balancing application performance and functionality: The job scraping and matching for users involved compute-intensive operations. Using asychronous data processing not only alleviated server load but also improved the user experience.</li>
+					<li class="lessons-learned">Choosing and configuring a lightweight database: A NoSQL database would allow us to quickly update user's jobs and delete old ones. It would also allow flexibility to change our schema as we prototyped.</li>
+					<li class="lessons-learned">Algorithmic Choices: Tuning the machine learning's semantic matching ability and mixing it with programatic rules that boosted key-word matching involved trial and error.</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+	<footer class="footer">
+		<p>Much of this website was created using a generative model (GPT-3.5) <i class="far fa-smile"></i>
+		</p>
+	</footer>
 </body>
+
 </html>
