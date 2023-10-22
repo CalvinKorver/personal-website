@@ -95,20 +95,20 @@
 				<span class="strong">
 					Overview
 				</span>
-				<p>Millions of users enter hourly time during their shift every week using time management software. While most of the data entered reflects the actual worked time, mistakes are always possible. As part of the time approval process, managers and timekeepers spend valuable hours verifying user input.<sup class="footnote">1</sup>
+				<p>Millions of users enter hourly time during their shift every week using time management software. While most of the data entered reflects the actual worked time, users can make mistakes. Once time is submitted, managers and timekeepers need to spend considerable time verifying user input before the time is processed for payroll.<sup class="footnote">1</sup>
 					<br>
 					<br>
 					As part of the Time and Scheduling Hub for managers, Workday Time Anomalies automatically reveals possible time-entry errors and alerts managers about unusual time entries. The goal is to save time and improve payroll and labor cost accuracy.<sup class="footnote">2</sup>
 					<br>
 					<br>
-					At Workday, I built out components of the Time Anomalies feature in collaboration with our machine learning team that would allow managers to detect these unusual time entries. I also worked to enhance the delivery of this information to users with the Time Approval Summary filters, which allows managers and supervisors to easily discern and sort through descrepancies with their worker's time. 
+					At Workday, I built out components of the cross-team Time Anomalies project that allows managers to detect these unusual time entries using machine learning. I also worked to enhance the delivery of this information to users with the Time Approval Summary filters, which allows managers and supervisors to easily discern and sort through descrepancies with their worker's time. 
 					<br>
 					<br>
-					To complete this project, I worked to ensure delivery of both features through an early adopter phase of limited customer opt-in to full general availability for all Time Tracking customers in Workday 2021.
+					I deployed the feature through an early adopter phase of 10 customer opt-ins that ultimately scaled to general availability for all Time Tracking customers in Workday 2021.
 					<br>
 					<br>
 					<span class="strong">
-						Cited Information & details
+						Information & details
 					</span>
 					<br>
 				
@@ -128,8 +128,21 @@
 					<span class="tools strong">Tools & frameworks:</span>
 					<p> Python, NLP, SpaCy, Scrapy, AWS Ec2</p>
 				</div>
+
 				<span class="strong">
 					Overview
+				</span>
+				<p>Create a natural language processing model that matched user resumes with jobs and delivered a daily ranked list of prospective jobs postings.</p>
+				<span class="strong">
+					Lessons Learned / Challenges
+				</span>
+				<ul>
+					<li class="lessons-learned">Balancing performance and functionality: The job scraping and matching for users involved compute-intensive operations due to the ML model. Using serverless asychronous data processing could not only alleviate server load but could also improve user experience.</li>
+					<li class="lessons-learned">Optimizing the database: A NoSQL database would allow us to quickly update new jobs with flexibility to change our schema as we prototyped.</li>
+					<li class="lessons-learned">Tuning the algorithm: We could stack programatic rules with the machine learning algorithm to deliver more accurate predictionos.
+				</ul>
+				<span class="strong">
+					Details
 				</span>
 				<p>This project was inspired by a friend who came to me with a problem. Recently laid off from a large
 					Seattle-area tech company, he was looking for a new job.
@@ -140,11 +153,11 @@
 					What if there was a service that could process and match your resume with related jobs and deliver a ranked list of results daily to aid your job search?
 					<br>
 					<br>
-					With that idea in mind, we worked together to create Job Matcher, a service that scraped job posting
-					websites and used natural language processing to compute similarities between the postings and user
+					With that idea in mind, we worked together to create Job Matcher, a service that scrapes job posting
+					websites and uses natural language processing to compute similarities between the postings and user
 					resumes. It would prioritize skills (for example, Ruby or AWS Sagemaker) and return to the user a
 					set of matched jobs ranked by the machine learning model's scoring criteria daily. The job
-					position scraping and matching would be automated via a daily asyncronous API call to an EC2 instance so by the time
+					position scraping and matching would be automated via a daily asyncronous API call to an EC2 instance or using a Lambda function so by the time
 					the user logged in, the results would already be persisted and presented to them on the client side.
 				</p>
 				<span class="strong">
@@ -155,16 +168,10 @@
 				<div class="image-container">
 					<img id='job-finder-img' src="/images/JobFinder.png" alt="">
 				</div>
+				<p>One particular difficult aspect of the project was determining when the job scraping and matching would run. Since the application needed to not only scrape jobs and match them with the user's data, the user might have to wait a long time to see their results if we performed these actions syncronously. </p>
+				<p>For future improvements, we could utilize a server-less service like Amazon Lambda that could be triggered daily to run the scraper and matcher. Additionally, Lambda Layers allows multiple dependencies like SpaCy and PyScraper to be incorporated easily into the deployed Lambda function. Consequently, dependencies can be managed with rewriting the Docker script and if we wanted to improve the algorithm in the future with new functionality, new packages could be added.</p>
 				
 				
-				<span class="strong">
-					Lessons Learned / Challenges
-				</span>
-				<ul>
-					<li class="lessons-learned">Balancing application performance and functionality: The job scraping and matching for users involved compute-intensive operations. Using asychronous data processing not only alleviated server load but also improved the user experience.</li>
-					<li class="lessons-learned">Choosing and configuring a lightweight database: A NoSQL database would allow us to quickly update user's jobs and delete old ones. It would also allow flexibility to change our schema as we prototyped.</li>
-					<li class="lessons-learned">Algorithmic Choices: Tuning the machine learning's semantic matching ability and mixing it with programatic rules that boosted key-word matching involved trial and error.</li>
-				</ul>
 			</section>
 		</div>
 	</div>

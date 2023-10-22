@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Problems</title>
+</head>
+<body>
+
+    <div class="container"> 
+        <h1>Word Break</h1>
+        <p>Word break was one of the first "dynamic programming" optimized coding problems that i truly liked.</p>
+        <p>What really caught my eye was how complex the problem seems at first but by breaking it down into subproblems, its possible to come up with a relatively simple and somewhat elegant solution.</p>
+        <br>
+        <p>The problem is as follows:</p>
+        <blockquote>
+            Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.
+
+            Note that the same word in the dictionary may be reused multiple times in the segmentation.
+        </blockquote>
+
+        <p>
+        At first, its quite confusing. Are we trying to fit all these words into the string? There seem to be an incredibly large combination of solutions as well. For example, if we take this example:
+        </p>
+        <blockquote>
+            s = 'basecamp'
+            wordDict = ['base', 'camp']
+        </blockquote>
+        <p>This seems pretty simple. All we need to do is use 'base' once and 'camp' once. Voila, we have our solution.</p>
+        <p>How about a more complex solution? What if we had:</p>
+        <blockquote>
+            s = 'catsanddogs'
+            wordDict = ['cats', 'nd', 'dogs', 'catsa']
+        </blockquote>
+        <p>If we go ahead and choose 'cats', we are left with 'anddogs' which can't really be formed with any of the string we have since 'nd'+'dogs' is missing a character.
+            However, if we had chosen 'catsa', we could have then used 'nd' and 'dogs'. Clearly, our code needs to be more intelligent then to just consider the first word that matches...
+        </p>
+
+        <p>I like to think of dynamic programming problems as having a unique "smell". That is to say, the problem seems like something we can break down into subproblems.
+            For example, in the case above, we need to be able to consider using both 'cats' and 'catsa' instead of just 'cats'. Therefore, if we can keep track of the fact that both of these words
+            are valid (and notice that both end at different points in our string), we could consider these different options when we progress through the rest of the string. You could 
+            say that we are being "dynamic" in keeping our options open ;).
+        </p>
+
+        <p>In that case, let's build some intuition about how we can formulate this problem programatically. First of all, lets try to find a "base" case or starting point. Normally in programming questions,
+            we start at the front of the string - but what if we could start at the end of a string and start decrementing our index until we found a word that exists in our word dictionary? If we do,
+            then we know at the specific pointer's position, we can definitely "finish" a string. In other words, from that index all the way to the end, we are "safe" in that a word can finish the string.
+            With that in mind, we can progress from the end of the string and when we find a match, mark it as true.
+            <br>
+            Okay, so we can say that from a point i in the string, the substring s[i:word.length] exists in the word dictionary. But how the heck do we know if the rest of the string is okay?
+            This is where I think the beauty of this solution shows itself. Instead of just setting that index to True in our dp array, we can actually just look at the index + word.length position,
+            in other words the last time we found a match, and if its True, we can set the current position to True. Therefore, we just keep track of a "train" of True solutions going all the way to the end
+            of the string.
+        </p>
+        <div class="box">
+            <pre>
+                def word_break(s, wordDic):
+                    i = 0
+                    dp = [False for i in range(len(s) + 1)]
+                    dp[-1] = True
+                    while i >= 0:
+                        for word in wordDic:
+                            if i + len(w) <= len(s) and s[i:i+len(w)] == w:
+                                dp[i] = dp[i + len(w)]
+
+                            if dp[i]:
+                                break # We can stop looking at words!
+
+                    return dp[0] # If we made it to the front, we are clear!
+            </pre>
+        </div>
+
+
+    
+
+
+    </div>
+    
+</body>
+</html>
