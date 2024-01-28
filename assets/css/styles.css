@@ -12,15 +12,16 @@ body {
 }
 
 .container {
-  margin-top: 5%;
+
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 5%; /* Updated horizontal padding for mobile */
-  padding-bottom: 8rem;
+  padding: 15% 15%; /* Updated horizontal padding for mobile */
+  
+  height: 100%;
 }
 
 
@@ -57,7 +58,7 @@ div.projects {
   display: inline-block;  
   border: none;
   border-radius: 10px;
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 500;
   text-align: center;
   text-decoration: none;
@@ -78,7 +79,7 @@ div.projects {
 
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 0;
   font-weight: 400;
 }
@@ -121,6 +122,10 @@ footer > p {
   height: auto;
   columns: white;
   stroke: white;
+}
+
+.emoji {
+  font-size: 24px;
 }
 
 .strong {
@@ -191,6 +196,19 @@ img#time-management {
 
 @media screen and (min-width: 600px) {
 
+  .container {
+
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 15%; /* Updated horizontal padding for mobile */
+    padding-bottom: 8rem;
+    height: 100vh;
+  }
+
   img#time-management {
     
     padding: 5% 10%;
@@ -222,12 +240,12 @@ img#time-management {
   }
 
   p {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .header-div {
   margin-bottom: 8%;
-  margin-top: 3%;
+  margin-top: 8%;
   }
 
   .container.full-height {
