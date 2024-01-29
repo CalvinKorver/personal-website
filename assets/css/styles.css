@@ -19,7 +19,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 15% 15%; /* Updated horizontal padding for mobile */
+  padding: 15% 10%; /* Updated horizontal padding for mobile */
   
   height: 100%;
 }
