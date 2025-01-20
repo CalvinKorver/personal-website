@@ -235,6 +235,35 @@ img#time-management {
     align-items: center;
   }
 
+  .clear-images-div {
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+
+  .clear-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+}
+
+
+
+/* Add these CSS rules */
+@media screen and (max-width: 480px) {
+  div.clear-images-div > img {
+      max-width: 100%;
+      height: auto;
+  }
+  
+  .clear-images-div .col-12-small {
+      padding: 0 1em; /* Add some padding on the sides */
+  }
+
+  .row.gtr-uniform {
+      margin: 0; /* Reset any margins that might be causing overflow */
+  }
+}
+
   p.centered {
     max-width: 50vw;
   }
@@ -265,5 +294,21 @@ img#time-management {
     text-decoration: none;
     /* padding-left: 2rem;
     padding-right: 2rem; */
+  }
+}
+
+.clear-images-div .row .col-4 img.clear-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* For mobile screens */
+@media screen and (max-width: 480px) {
+  .clear-images-div .row .col-4 img.clear-image,
+  .clear-images-div .row .col-12-small img.clear-image {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
   }
 }
