@@ -11,15 +11,21 @@ body {
   min-height: 100vh;
 }
 
-.container {
+p > .secondary {
+  color: rgb(199, 199, 199);
+}
 
+.container {
+  margin: auto;
+  padding: 10%;
+  width: 100%;
+  max-width: 2000px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 15% 10%; /* Updated horizontal padding for mobile */
   
   height: 100%;
 }
@@ -48,8 +54,11 @@ a.link.button {
 }
 
 div.projects {
-  margin: 10%;
+  padding: 10%;
   margin-top: 0;
+  max-width: 2000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .material-button {
@@ -204,9 +213,10 @@ img#time-management {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 15%; /* Updated horizontal padding for mobile */
+    
     padding-bottom: 8rem;
     height: 100vh;
+    max-width: 2000px;
   }
 
   img#time-management {
