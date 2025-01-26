@@ -59,6 +59,7 @@ div.projects {
   max-width: 2000px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 0;
 }
 
 .material-button {
@@ -147,13 +148,20 @@ footer > p {
 
 li {
   margin-top: .5em;
-  font-size: 1.2rem;
+  font-size: 16px;
 }
 
 p#last-job-finder {
   margin-bottom: 0;
 }
 
+#headline-2 {
+  padding-left: 6px;
+}
+
+#headline-3 {
+  padding-left: 4px;
+}
 
 
 
