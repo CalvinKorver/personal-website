@@ -11,7 +11,7 @@ export default function Blog() {
             Coming Soon
           </h2>
           <p className="text-gray-600 text-lg mb-8">
-            I'm currently working on some exciting blog posts. Check back soon!
+            Coming soon.
           </p>
           <Link 
             href="/"
