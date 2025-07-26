@@ -4,66 +4,125 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a static personal website for Calvin Korver built with HTML, CSS, and JavaScript. The site uses the Stellar template from HTML5 UP and includes multiple pages: home, projects, resume, and various template demonstration pages.
-
-## Key Architecture
-
-**Static Website Structure:**
-- `index.html` - Main landing page with intro, about, and projects sections
-- `projects.html` - Dedicated projects showcase page
-- `resume.html` - Resume page with Adobe PDF Embed API integration
-- Template pages: `elements.html`, `no-sidebar.html`, `right-sidebar.html`, `word_break.html`
-
-**Asset Organization:**
-- `assets/css/` - Stylesheets including main.css (compiled from SASS), styles.css (custom), resume.css
-- `assets/sass/` - SASS source files with modular architecture (base/, components/, layout/, libs/)
-- `assets/js/` - JavaScript files including jQuery dependencies and main.js for interactions
-- `assets/images/` - Project images and graphics
-- `assets/pdf/` - Resume PDF file
-- `functions.js` - Custom utility functions (smooth scrolling)
-
-**Styling System:**
-- Based on HTML5 UP Stellar template
-- SASS architecture with breakpoint system for responsive design
-- Breakpoints: xxsmall (≤360px), xsmall (361-480px), small (481-736px), medium (737-980px), large (981-1280px), xlarge (1281-1680px)
-- Custom yellow accent color for branding
-- FontAwesome icons integration
+This repository contains Calvin Korver's personal website built with Next.js and integrated with Sanity CMS:
+1. **Next.js Site** - Modern React-based website with Sanity CMS integration (root directory)
+2. **Sanity Studio** - Content management system for blog functionality (`sanity-studio/`)
 
 ## Development Commands
 
-This is a static website with no build system. Development workflow:
+### Next.js Site (Root Directory)
+```bash
+npm install       # Install dependencies
+npm run dev       # Development server at http://localhost:3000
+npm run build     # Production build
+npm run start     # Production server
+npm run lint      # ESLint
+```
 
-**SASS Compilation:**
-The project uses SASS but there's no apparent build system configured. CSS appears to be pre-compiled. If SASS changes are needed, you'll need to manually compile or set up a build process.
+### Sanity Studio (`sanity-studio/`)
+```bash
+cd sanity-studio
+npm install
+npm run dev       # Development studio at http://localhost:3333
+npm run build     # Build studio
+npm run start     # Production studio
+```
 
-**Local Development:**
-Serve files using any static file server:
-- `python -m http.server 8000` (Python)
-- `npx serve .` (Node.js)
-- Open HTML files directly in browser for basic testing
+## Architecture Overview
 
-**Deployment:**
-Based on Vercel analytics integration in index.html, this appears to be deployed on Vercel.
+### Next.js Site Structure
+- **Framework:** Next.js 15.4.4 with TypeScript
+- **Styling:** Tailwind CSS v4
+- **CMS:** Sanity integration via `next-sanity`
+- **Key Pages:** 
+  - Home (`/`) - Main landing page with hero and projects sections
+  - Blog (`/blog`) - Blog listing page
+  - Resume (`/resume`) - Resume page with PDF display
+  - Sanity Studio (`/studio`) - Embedded Sanity Studio
+- **Components:** Footer, HeroSection, ProjectsSection
+- **Configuration:** TypeScript, ESLint, PostCSS, Tailwind CSS
+
+### File Structure
+```
+/
+├── src/
+│   ├── app/                 # Next.js App Router pages
+│   │   ├── page.tsx        # Home page
+│   │   ├── layout.tsx      # Root layout
+│   │   ├── globals.css     # Global styles
+│   │   ├── blog/
+│   │   │   └── page.tsx    # Blog listing page
+│   │   ├── resume/
+│   │   │   └── page.tsx    # Resume page
+│   │   └── studio/
+│   │       └── [[...tool]]/
+│   │           └── page.tsx # Embedded Sanity Studio
+│   └── components/         # Reusable React components
+│       ├── Footer.tsx
+│       ├── HeroSection.tsx
+│       └── ProjectsSection.tsx
+├── lib/
+│   └── sanity.ts          # Sanity client configuration
+├── schemas/               # Sanity schema definitions
+│   ├── index.ts
+│   └── project.ts
+├── public/               # Static assets
+├── sanity.config.ts      # Sanity configuration
+└── sanity-studio/        # Standalone Sanity Studio
+```
+
+### Sanity CMS (`sanity-studio/`)
+- **Version:** Sanity v3.58.0
+- **Project ID:** `9akax19u`
+- **Dataset:** `production`  
+- **Schema:** Blog posts with title, slug, content, categories, featured status
+- **Plugins:** Structure Tool, Vision Tool
+- **Styling:** Styled Components
+
+## Blog System Integration
+
+**Next.js Integration:**
+- `next-sanity` package for seamless integration
+- Server-side rendering and static generation support
+- Portable Text rendering with `@portabletext/react`
+- GROQ queries for content fetching
+
+**Content Management:**
+- Blog posts created in Sanity Studio
+- Rich text editor with code syntax highlighting
+- Category management and featured post selection
+- Image uploads with alt text support
 
 ## Key Features
 
-**Analytics Integration:**
-- Vercel Analytics script included in index.html
-- Custom analytics function: `window.va`
+**CMS Integration:**
+- Embedded Sanity Studio at `/studio` route
+- Real-time content updates
+- Rich content editing with Portable Text
 
-**PDF Resume:**
-- Adobe PDF Embed API integration in resume.html
-- Resume served from `assets/pdf/cjkorver_resume.pdf`
+**Modern Web Stack:**
+- TypeScript for type safety
+- Tailwind CSS for styling
+- ESLint for code quality
+- Next.js App Router for modern routing
 
-**Responsive Design:**
-- Mobile-first approach with comprehensive breakpoint system
-- Smooth scrolling navigation between sections
-- Custom utility function `scrollToDiv()` for navigation
+**Deployment:**
+- Configured for Vercel deployment
+- Static generation and server-side rendering
+- Optimized for performance
 
-**Content Sections:**
-- Personal introduction with NYC location
-- About section with professional background
-- Projects showcase with images and descriptions
-- Resume integration with PDF viewer
+## Development Workflow
 
-This is a straightforward static website focused on personal branding and portfolio display, with modern web practices for responsive design and user experience.
+1. **Content Creation:** Use Sanity Studio (localhost:3333 or /studio route) to create and manage content
+2. **Development:** Run `npm run dev` for local development with hot reloading
+3. **Styling:** Use Tailwind CSS classes for styling components
+4. **Type Safety:** TypeScript provides compile-time type checking
+5. **Deployment:** Build and deploy to Vercel or similar platforms
+
+## Important Notes
+
+- The main site is built with Next.js and served from the root directory
+- Sanity Studio can be accessed both as a standalone app and embedded in the main site
+- All static assets are in the `public/` directory
+- Component-based architecture for maintainable code
+- Modern React patterns with hooks and functional components

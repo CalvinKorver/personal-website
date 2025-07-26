@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'personal-website',
   title: 'Personal Website',
 
-  projectId: '9akax19u', // You'll need to replace this after creating the project
+  projectId: 'mvus36sf',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
