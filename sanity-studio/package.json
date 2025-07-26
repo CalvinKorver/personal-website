@@ -11,6 +11,9 @@
   "keywords": [
     "sanity"
   ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
     "@sanity/vision": "^4.1.1",
     "react": "^18",
