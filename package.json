@@ -1,0 +1,24 @@
+{
+  "name": "personalwebsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "functions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CalvinKorver/personalwebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CalvinKorver/personalwebsite/issues"
+  },
+  "homepage": "https://github.com/CalvinKorver/personalwebsite#readme",
+  "dependencies": {
+    "@sanity/client": "^7.8.1"
+  }
+}
