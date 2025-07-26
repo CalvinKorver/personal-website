@@ -1,57 +1,41 @@
-'use client';
-
 export default function HeroSection() {
-  const scrollToProjects = () => {
-    const element = document.getElementById('projects-section');
-    element?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <div className="min-h-screen flex flex-col justify-center items-start px-8 lg:px-16 max-w-6xl mx-auto">
-      <div className="space-y-6">
-        <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-          Nice to meet you, <br />
-          I&apos;m <span className="text-yellow-500">Calvin.</span>
-        </h1>
-        
-        <div className="space-y-4 text-lg lg:text-xl">
-          <p className="flex items-center">
-            <span className="mr-3 text-2xl">😍</span>
-            Living and working in NYC
-          </p>
+    <div className="min-h-screen flex flex-col justify-center items-start px-8 lg:px-24 max-w-7xl mx-auto">
+      <div className="space-y-12 max-w-4xl">
+        <div className="space-y-8">
+          <h1 className="text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+            Nice to meet you, <br />
+            I&apos;m <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">Calvin.</span>
+          </h1>
           
-          <p className="flex items-center">
-            <span className="mr-3 text-2xl">💻</span>
-            Building a modern payments platform @ <a href="https://www.clearme.com/" className="text-blue-600 hover:underline">CLEAR</a>
-          </p>
-          
-          <p className="flex items-center">
-            <span className="mr-3 text-2xl">☕</span>
-            Training for a triathlon & finding new coffee shops in my free time
+          <p className="text-xl lg:text-2xl text-muted max-w-2xl leading-relaxed">
+            Software engineer building modern payment systems and exploring the intersection of technology and user experience.
           </p>
         </div>
         
-        <div className="flex flex-wrap gap-4 pt-8">
-          <a 
-            href="https://www.linkedin.com/in/calvinkorver/"
-            className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium px-6 py-3 rounded-lg transition-colors"
-          >
-            LinkedIn
-          </a>
+        <div className="space-y-6 text-lg lg:text-xl">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
+              <span className="text-2xl">📍</span>
+            </div>
+            <span className="text-foreground">Living and working in NYC</span>
+          </div>
           
-          <button 
-            onClick={scrollToProjects}
-            className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium px-6 py-3 rounded-lg transition-colors"
-          >
-            Projects
-          </button>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
+              <span className="text-2xl">💻</span>
+            </div>
+            <span className="text-foreground">
+              Building a modern payments platform @ <a href="https://www.clearme.com/" className="text-accent hover:underline font-medium transition-colors">CLEAR</a>
+            </span>
+          </div>
           
-          <a 
-            href="/blog"
-            className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium px-6 py-3 rounded-lg transition-colors"
-          >
-            Blog
-          </a>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
+              <span className="text-2xl">☕</span>
+            </div>
+            <span className="text-foreground">Training for a triathlon & finding new coffee shops in my free time</span>
+          </div>
         </div>
       </div>
     </div>

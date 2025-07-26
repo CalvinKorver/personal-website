@@ -2,61 +2,67 @@ import Image from 'next/image';
 
 export default function ProjectsSection() {
   return (
-    <div id="projects-section" className="bg-gray-50 py-16 px-8 lg:px-16">
-      <div className="max-w-6xl mx-auto">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Projects</h1>
-          <p className="text-xl text-gray-600">Some recent projects that I&apos;ve worked on...</p>
+    <div id="projects-section" className="bg-background py-24 px-8 lg:px-24">
+      <div className="max-w-7xl mx-auto">
+        <header className="text-center mb-20">
+          <h1 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">Projects</h1>
+          <p className="text-xl lg:text-2xl text-muted max-w-2xl mx-auto leading-relaxed">Some recent projects that I&apos;ve worked on...</p>
         </header>
 
-        <div className="space-y-16">
+        <div className="space-y-24">
           {/* CLEAR Project */}
-          <section className="bg-white rounded-lg p-8 shadow-sm">
-            <h2 className="text-2xl font-bold mb-4">Subscriptions & Payments | CLEAR</h2>
+          <section className="bg-card-bg rounded-2xl p-12 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Subscriptions & Payments | CLEAR</h2>
             
-            <div className="mb-6">
-              <span className="font-semibold text-gray-700">Tools & frameworks:</span>
-              <p className="text-gray-600">Java, K8s, Dropwizard, Stripe, Github Actions, Datadog, Browserstack</p>
+            <div className="mb-8">
+              <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {['Java', 'K8s', 'Dropwizard', 'Stripe', 'Github Actions', 'Datadog', 'Browserstack'].map((tech) => (
+                  <span key={tech} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
             
-            <div className="space-y-4 text-gray-700">
-              <h3 className="font-semibold">Overview</h3>
-              <p>
+            <div className="space-y-6 text-foreground">
+              <h3 className="text-xl font-semibold mb-4">Overview</h3>
+              <p className="text-lg leading-relaxed mb-4">
                 I joined CLEAR as the founding full-time engineer on the Subscriptions & Payments team, where I helped scale our operations from initial concept and design through production deployment and team expansion.
               </p>
-              <p>
+              <p className="text-lg leading-relaxed mb-4">
                 I helped architect and implement a custom Stripe integration that revolutionized our payment infrastructure, enabling advanced capabilities like dynamic repricing and flexible trial periods that previously involved long downtime or development cycles.
               </p>
-              <p>
+              <p className="text-lg leading-relaxed">
                 The new system is projected to recover up to $13 million in revenue from failed payments and subscription renewals. I led the strategic rollout of our mobile client deployment, orchestrating a careful ramp-up from 0 to 100% of production capacity, ensuring a seamless transition while maintaining system stability.
               </p>
               
               <div>
-                <h3 className="font-semibold mb-2">Information & details</h3>
-                <ol className="list-decimal list-inside space-y-1">
+                <h3 className="text-xl font-semibold mb-4">Information & details</h3>
+                <ol className="list-decimal list-inside space-y-3 text-lg">
                   <li>
-                    <a href="https://www.clearme.com/clear-mobile-app" className="text-blue-600 hover:underline">
+                    <a href="https://www.clearme.com/clear-mobile-app" className="text-accent hover:underline font-medium transition-colors">
                       Mobile App
-                    </a> (our first client, deployed new platform in December)
+                    </a> <span className="text-muted">(our first client, deployed new platform in December)</span>
                   </li>
                   <li>
-                    <a href="https://enroll.clearme.com/enroll/" className="text-blue-600 hover:underline">
+                    <a href="https://enroll.clearme.com/enroll/" className="text-accent hover:underline font-medium transition-colors">
                       CLEAR web enrollment
-                    </a> (deployed in February)
+                    </a> <span className="text-muted">(deployed in February)</span>
                   </li>
                 </ol>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center">
                   <Image
                     src="/clear-2.png"
                     alt="Dynamic re-pricing functionality"
                     width={300}
                     height={200}
-                    className="rounded-lg mb-3 mx-auto"
+                    className="rounded-xl mb-4 mx-auto"
                   />
-                  <p className="text-sm text-gray-600">
+                  <p className="text-muted leading-relaxed">
                     Dynamic re-pricing decreased development effort & downtime required by the legacy system from several sprints to minutes via admin self-service.
                   </p>
                 </div>
@@ -66,21 +72,21 @@ export default function ProjectsSection() {
                     alt="Security architecture"
                     width={300}
                     height={200}
-                    className="rounded-lg mb-3 mx-auto"
+                    className="rounded-xl mb-4 mx-auto"
                   />
-                  <p className="text-sm text-gray-600">
+                  <p className="text-muted leading-relaxed">
                     First-in-class architecture meant that PII (personally-identifiable information) like PANs don&apos;t flow through the new system ensuring security and compliance.
                   </p>
                 </div>
-                <div className="text-center">
+                <div className="text-center ">
                   <Image
                     src="/clear-1.png"
                     alt="Subscription management"
                     width={300}
                     height={200}
-                    className="rounded-lg mb-3 mx-auto"
+                    className="rounded-xl mb-4 mx-auto"
                   />
-                  <p className="text-sm text-gray-600">
+                  <p className="text-muted leading-relaxed">
                     Subscription group upgrading and downgrading functionality allowed users to modify their subscription in turn increasing revenue.
                   </p>
                 </div>
@@ -89,108 +95,120 @@ export default function ProjectsSection() {
           </section>
 
           {/* Workday Project */}
-          <section className="bg-white rounded-lg p-8 shadow-sm">
-            <h2 className="text-2xl font-bold mb-4">Time Anomalies | Workday</h2>
+          <section className="bg-card-bg rounded-2xl p-12 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Time Anomalies | Workday</h2>
             
-            <div className="mb-6">
-              <span className="font-semibold text-gray-700">Tools & frameworks:</span>
-              <p className="text-gray-600">Jupyter, Xpresso (Java-based OOP language)</p>
+            <div className="mb-8">
+              <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {['Jupyter', 'Xpresso (Java-based OOP)'].map((tech) => (
+                  <span key={tech} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
             
-            <div className="space-y-4 text-gray-700">
-              <h3 className="font-semibold">Overview</h3>
-              <p>
+            <div className="space-y-6 text-foreground">
+              <h3 className="text-xl font-semibold mb-4">Overview</h3>
+              <p className="text-lg leading-relaxed mb-4">
                 Millions of users enter hourly time during their shift every week using time management software. While most of the data entered reflects the actual worked time, users can make mistakes. Once time is submitted, managers and timekeepers need to spend considerable time verifying user input before the time is processed for payroll.
               </p>
-              <p>
+              <p className="text-lg leading-relaxed mb-4">
                 As part of the Time and Scheduling Hub for managers, Workday Time Anomalies automatically reveals possible time-entry errors and alerts managers about unusual time entries. The goal is to save time and improve payroll and labor cost accuracy.
               </p>
-              <p>
+              <p className="text-lg leading-relaxed mb-4">
                 At Workday, I built out components of the cross-team Time Anomalies project that allows managers to detect these unusual time entries using machine learning. I also worked to enhance the delivery of this information to users with the Time Approval Summary filters, which allows managers and supervisors to easily discern and sort through discrepancies with their worker&apos;s time.
               </p>
-              <p>
+              <p className="text-lg leading-relaxed">
                 I deployed the feature through an early adopter phase of 10 customer opt-ins that ultimately scaled to general availability for all Time Tracking customers in Workday 2021.
               </p>
               
               <div>
-                <h3 className="font-semibold mb-2">Information & details</h3>
-                <ol className="list-decimal list-inside space-y-1">
+                <h3 className="text-xl font-semibold mb-4">Information & details</h3>
+                <ol className="list-decimal list-inside space-y-3 text-lg">
                   <li>
-                    <a href="https://www.workday.com/en-us/products/workforce-management/time.html" className="text-blue-600 hover:underline">
+                    <a href="https://www.workday.com/en-us/products/workforce-management/time.html" className="text-accent hover:underline font-medium transition-colors">
                       Workday Time Management
                     </a>
                   </li>
                   <li>
-                    <a href="https://blog.workday.com/en-us/2023/workforce-management-what-know-when-choosing-wfm-solution.html" className="text-blue-600 hover:underline">
+                    <a href="https://blog.workday.com/en-us/2023/workforce-management-what-know-when-choosing-wfm-solution.html" className="text-accent hover:underline font-medium transition-colors">
                       Workday Payroll & Time Blog Post
                     </a>
                   </li>
                 </ol>
               </div>
 
-              <div className="mt-6">
+              <div className="mt-12 text-center">
                 <Image
                   src="/time-management.png"
                   alt="Time management interface"
                   width={600}
                   height={400}
-                  className="rounded-lg mx-auto"
+                  className="rounded-xl mx-auto shadow-lg"
                 />
               </div>
             </div>
           </section>
 
           {/* Job Matcher Project */}
-          <section className="bg-white rounded-lg p-8 shadow-sm">
-            <h2 className="text-2xl font-bold mb-4">Job Matcher | Project</h2>
+          <section className="bg-card-bg rounded-2xl p-12 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Job Matcher | Project</h2>
             
-            <div className="mb-6">
-              <span className="font-semibold text-gray-700">Tools & frameworks:</span>
-              <p className="text-gray-600">Python, NLP, SpaCy, Scrapy, AWS EC2</p>
+            <div className="mb-8">
+              <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {['Python', 'NLP', 'SpaCy', 'Scrapy', 'AWS EC2'].map((tech) => (
+                  <span key={tech} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
             
-            <div className="space-y-4 text-gray-700">
-              <h3 className="font-semibold">Overview</h3>
-              <p>
+            <div className="space-y-6 text-foreground">
+              <h3 className="text-xl font-semibold mb-4">Overview</h3>
+              <p className="text-lg leading-relaxed mb-6">
                 Create a natural language processing model that matched user resumes with jobs and delivered a daily ranked list of prospective job postings.
               </p>
               
-              <h3 className="font-semibold">Lessons Learned / Challenges</h3>
-              <ul className="list-disc list-inside space-y-2">
-                <li>
-                  Balancing performance and functionality: The job scraping and matching for users involved compute-intensive operations due to the ML model. Using serverless asynchronous data processing could not only alleviate server load but could also improve user experience.
+              <h3 className="text-xl font-semibold mb-4">Lessons Learned / Challenges</h3>
+              <ul className="list-disc list-inside space-y-4 text-lg mb-6">
+                <li className="leading-relaxed">
+                  <strong>Balancing performance and functionality:</strong> The job scraping and matching for users involved compute-intensive operations due to the ML model. Using serverless asynchronous data processing could not only alleviate server load but could also improve user experience.
                 </li>
-                <li>
-                  Optimizing the database: A NoSQL database would allow us to quickly update new jobs with flexibility to change our schema as we prototyped.
+                <li className="leading-relaxed">
+                  <strong>Optimizing the database:</strong> A NoSQL database would allow us to quickly update new jobs with flexibility to change our schema as we prototyped.
                 </li>
-                <li>
-                  Tuning the algorithm: We could stack programmatic rules with the machine learning algorithm to deliver more accurate predictions.
+                <li className="leading-relaxed">
+                  <strong>Tuning the algorithm:</strong> We could stack programmatic rules with the machine learning algorithm to deliver more accurate predictions.
                 </li>
               </ul>
               
-              <h3 className="font-semibold">Details</h3>
-              <p>
+              <h3 className="text-xl font-semibold mb-4">Details</h3>
+              <p className="text-lg leading-relaxed mb-4">
                 This project was inspired by a friend who came to me with a problem. Recently laid off from a large Seattle-area tech company, he was looking for a new job. While there were many services to help find jobs, finding a good match with unique skills and experiences required many hours manually parsing job descriptions for a good fit.
               </p>
-              <p>
+              <p className="text-lg leading-relaxed mb-4">
                 What if there was a service that could process and match your resume with related jobs and deliver a ranked list of results daily to aid your job search?
               </p>
-              <p>
+              <p className="text-lg leading-relaxed mb-6">
                 With that idea in mind, we worked together to create Job Matcher, a service that scrapes job posting websites and uses natural language processing to compute similarities between the postings and user resumes. It would prioritize skills (for example, Ruby or AWS Sagemaker) and return to the user a set of matched jobs ranked by the machine learning model&apos;s scoring criteria daily.
               </p>
               
-              <h3 className="font-semibold">Architecture</h3>
-              <p>
+              <h3 className="text-xl font-semibold mb-4">Architecture</h3>
+              <p className="text-lg leading-relaxed mb-8">
                 The application consists of several main components: The flask server handles the client interaction including user identification and metadata persistence (resume, email, etc.). To communicate with the MongoDB cluster, we exposed pathways via FastAPI to allow for new user creation, updating of user details, and getting the latest matched resumes.
               </p>
               
-              <div className="mt-6">
+              <div className="mt-12 text-center">
                 <Image
                   src="/JobFinder.png"
                   alt="Job Finder Architecture Diagram"
                   width={600}
                   height={400}
-                  className="rounded-lg mx-auto"
+                  className="rounded-xl mx-auto shadow-lg"
                 />
               </div>
             </div>

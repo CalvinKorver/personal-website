@@ -11,7 +11,7 @@ interface BlogPost {
   author: string;
   categories: string[];
   featured: boolean;
-  body: any[];
+  body: Array<{ _type: string; [key: string]: unknown }>;
   mainImage?: {
     asset: {
       url: string;
@@ -48,8 +48,9 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
   }
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-  const post = await getBlogPost(params.slug);
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
 
   if (!post) {
     return (
@@ -58,7 +59,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
           <div className="bg-white rounded-lg p-8 shadow-sm text-center">
             <h1 className="text-2xl font-bold mb-4">Post Not Found</h1>
             <p className="text-gray-600 mb-6">
-              The blog post you're looking for doesn't exist or has been removed.
+              The blog post you&apos;re looking for doesn&apos;t exist or has been removed.
             </p>
             <Link 
               href="/blog"

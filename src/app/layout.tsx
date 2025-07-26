@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
+import Header from "@/components/Header";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({ 
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"]
+});
 
 export const metadata: Metadata = {
   title: "Calvin Korver",
@@ -26,8 +30,11 @@ export default function RootLayout({
         />
         <script defer src="/_vercel/insights/script.js" />
       </head>
-      <body className={inter.className}>
-        {children}
+      <body className={raleway.className}>
+        <Header />
+        <main className="pt-16">
+          {children}
+        </main>
       </body>
     </html>
   );
