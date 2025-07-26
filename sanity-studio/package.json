@@ -1,0 +1,29 @@
+{
+  "name": "calvin-blog-sanity-studio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "sanity build",
+    "dev": "sanity dev",
+    "start": "sanity start"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@sanity/vision": "^4.1.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "sanity": "^3.58.0",
+    "styled-components": "^6.1.19"
+  },
+  "browserslist": [
+    "> 0.2%",
+    "not dead",
+    "not ie <= 11"
+  ]
+}
