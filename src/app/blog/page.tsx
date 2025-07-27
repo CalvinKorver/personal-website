@@ -1,4 +1,24 @@
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Blog | Calvin Korver",
+  description: "Thoughts and insights on software engineering, payments technology, and building modern web applications.",
+  openGraph: {
+    title: "Blog | Calvin Korver",
+    description: "Thoughts and insights on software engineering, payments technology, and building modern web applications.",
+    url: 'https://calvinkorver.com/blog',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: "Blog | Calvin Korver",
+    description: "Thoughts and insights on software engineering, payments technology, and building modern web applications.",
+  },
+  alternates: {
+    canonical: '/blog',
+  },
+};
 
 export default function Blog() {
   return (

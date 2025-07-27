@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://calvinkorver.com/sitemap.xml
+
+# Common crawl restrictions
+Disallow: /api/
+Disallow: /_next/
+Disallow: /studio/

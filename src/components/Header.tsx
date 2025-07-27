@@ -9,17 +9,18 @@ export default function Header() {
   const navigationItems = [
     { href: "/#projects-section", label: "Projects" },
     { href: "/blog", label: "Blog" },
-    { href: "https://www.linkedin.com/in/calvinkorver/", label: "LinkedIn", external: true }
+    { href: "https://www.linkedin.com/in/calvinkorver/", label: "LinkedIn", external: true },
+    { href: "https://github.com/CalvinKorver", label: "Github", external: true }
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md">
       <div className="mx-auto px-6">
-        <div className="flex items-center h-16" style={{ gap: '24px' }}>
+        <div className="flex items-center h-12" style={{ gap: '24px' }}>
           {/* Logo/Name */}
           <Link 
             href="/" 
-            className="text-xl font-semibold text-foreground hover:text-accent transition-colors flex-shrink-0"
+            className="text-large font-medium text-foreground hover:text-accent transition-colors flex-shrink-0"
           >
             Calvin Korver
           </Link>
@@ -33,7 +34,7 @@ export default function Header() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:text-accent transition-colors font-medium"
+                  className="text-foreground hover:text-accent transition-colors font-light"
                 >
                   {item.label}
                 </a>
@@ -41,7 +42,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-foreground hover:text-accent transition-colors font-medium"
+                  className="text-foreground hover:text-accent transition-colors font-light"
                 >
                   {item.label}
                 </Link>

@@ -24,6 +24,10 @@ body {
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 
+p {
+  font-weight: 300;
+}
+
 .prose {
   color: var(--foreground);
 }
