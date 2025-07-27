@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { client } from '../../../../lib/sanity';
 import { PortableText } from '@portabletext/react';
 
@@ -136,9 +137,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           {/* Main Image */}
           {post.mainImage && (
             <div className="mb-8">
-              <img 
+              <Image 
                 src={post.mainImage.asset.url}
                 alt={post.mainImage.alt || post.title}
+                width={800}
+                height={400}
                 className="w-full h-64 lg:h-96 object-cover rounded-lg"
               />
             </div>
@@ -191,9 +194,11 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   types: {
                     image: ({ value }) => (
                       <div className="my-8">
-                        <img 
+                        <Image 
                           src={value.asset.url}
                           alt={value.alt || ''}
+                          width={800}
+                          height={600}
                           className="w-full rounded-lg"
                         />
                         {value.alt && (

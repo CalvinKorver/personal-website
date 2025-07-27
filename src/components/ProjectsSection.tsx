@@ -5,14 +5,13 @@ export default function ProjectsSection() {
     <div id="projects-section" className="bg-background py-24 px-8 lg:px-24">
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-20">
-          <h1 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">Projects</h1>
-          <p className="text-xl lg:text-2xl text-muted max-w-2xl mx-auto leading-relaxed">Some recent projects that I&apos;ve worked on...</p>
+          <h2 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">Recent Projects</h2>
         </header>
 
         <div className="space-y-24">
           {/* CLEAR Project */}
           <section className="bg-card-bg rounded-2xl p-12 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Subscriptions & Payments | CLEAR</h2>
+            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Subscriptions & Payments | CLEAR</h3>
             
             <div className="mb-8">
               <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
@@ -26,7 +25,7 @@ export default function ProjectsSection() {
             </div>
             
             <div className="space-y-6 text-foreground">
-              <h3 className="text-xl font-semibold mb-4">Overview</h3>
+              <h4 className="text-xl font-semibold mb-4">Overview</h4>
               <p className="text-lg leading-relaxed mb-4">
                 I joined CLEAR as the founding full-time engineer on the Subscriptions & Payments team, where I helped scale our operations from initial concept and design through production deployment and team expansion.
               </p>
@@ -37,18 +36,23 @@ export default function ProjectsSection() {
                 The new system is projected to recover up to $13 million in revenue from failed payments and subscription renewals. I led the strategic rollout of our mobile client deployment, orchestrating a careful ramp-up from 0 to 100% of production capacity, ensuring a seamless transition while maintaining system stability.
               </p>
               
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Information & details</h3>
+              <div className="pb-4">
+                <h4 className="text-xl font-semibold mb-4">Details</h4>
                 <ol className="list-decimal list-inside space-y-3 text-lg">
                   <li>
-                    <a href="https://www.clearme.com/clear-mobile-app" className="text-accent hover:underline font-medium transition-colors">
+                    <a href="https://www.clearme.com/clear-mobile-app" className="text-blue-700 hover:underline font-medium transition-colors">
                       Mobile App
-                    </a> <span className="text-muted">(our first client, deployed new platform in December)</span>
+                    </a> <span className="text-muted font-light">was our first client in December</span>
                   </li>
                   <li>
-                    <a href="https://enroll.clearme.com/enroll/" className="text-accent hover:underline font-medium transition-colors">
-                      CLEAR web enrollment
-                    </a> <span className="text-muted">(deployed in February)</span>
+                    <a href="https://enroll.clearme.com/enroll/" className="text-blue-700 hover:underline font-medium transition-colors">
+                      CLEAR Web 
+                    </a> <span className="text-muted font-light">deployed in February</span>
+                  </li>
+                  <li>
+                    <a href="https://www.clearme.com/face-first-technology-enve-pods" className="text-blue-700 hover:underline font-medium transition-colors">
+                      EnVe Pods
+                    </a> <span className="text-muted font-light">in all airports March 2025</span>
                   </li>
                 </ol>
               </div>
@@ -96,7 +100,7 @@ export default function ProjectsSection() {
 
           {/* Workday Project */}
           <section className="bg-card-bg rounded-2xl p-12 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Time Anomalies | Workday</h2>
+            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Time Anomalies | Workday</h3>
             
             <div className="mb-8">
               <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
@@ -110,7 +114,7 @@ export default function ProjectsSection() {
             </div>
             
             <div className="space-y-6 text-foreground">
-              <h3 className="text-xl font-semibold mb-4">Overview</h3>
+              <h4 className="text-xl font-semibold mb-4">Overview</h4>
               <p className="text-lg leading-relaxed mb-4">
                 Millions of users enter hourly time during their shift every week using time management software. While most of the data entered reflects the actual worked time, users can make mistakes. Once time is submitted, managers and timekeepers need to spend considerable time verifying user input before the time is processed for payroll.
               </p>
@@ -125,15 +129,15 @@ export default function ProjectsSection() {
               </p>
               
               <div>
-                <h3 className="text-xl font-semibold mb-4">Information & details</h3>
+                <h4 className="text-xl font-semibold mb-4">Details</h4>
                 <ol className="list-decimal list-inside space-y-3 text-lg">
                   <li>
-                    <a href="https://www.workday.com/en-us/products/workforce-management/time.html" className="text-accent hover:underline font-medium transition-colors">
+                    <a href="https://www.workday.com/en-us/products/workforce-management/time.html" className="text-blue-700 hover:underline font-medium transition-colors">
                       Workday Time Management
                     </a>
                   </li>
                   <li>
-                    <a href="https://blog.workday.com/en-us/2023/workforce-management-what-know-when-choosing-wfm-solution.html" className="text-accent hover:underline font-medium transition-colors">
+                    <a href="https://blog.workday.com/en-us/2023/workforce-management-what-know-when-choosing-wfm-solution.html" className="text-blue-700 hover:underline font-medium transition-colors">
                       Workday Payroll & Time Blog Post
                     </a>
                   </li>
@@ -154,7 +158,7 @@ export default function ProjectsSection() {
 
           {/* Job Matcher Project */}
           <section className="bg-card-bg rounded-2xl p-12 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Job Matcher | Project</h2>
+            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Job Matcher | Project</h3>
             
             <div className="mb-8">
               <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
@@ -168,12 +172,12 @@ export default function ProjectsSection() {
             </div>
             
             <div className="space-y-6 text-foreground">
-              <h3 className="text-xl font-semibold mb-4">Overview</h3>
+              <h4 className="text-xl font-semibold mb-4">Overview</h4>
               <p className="text-lg leading-relaxed mb-6">
                 Create a natural language processing model that matched user resumes with jobs and delivered a daily ranked list of prospective job postings.
               </p>
               
-              <h3 className="text-xl font-semibold mb-4">Lessons Learned / Challenges</h3>
+              <h4 className="text-xl font-semibold mb-4">Lessons Learned / Challenges</h4>
               <ul className="list-disc list-inside space-y-4 text-lg mb-6">
                 <li className="leading-relaxed">
                   <strong>Balancing performance and functionality:</strong> The job scraping and matching for users involved compute-intensive operations due to the ML model. Using serverless asynchronous data processing could not only alleviate server load but could also improve user experience.
@@ -186,7 +190,7 @@ export default function ProjectsSection() {
                 </li>
               </ul>
               
-              <h3 className="text-xl font-semibold mb-4">Details</h3>
+              <h4 className="text-xl font-semibold mb-4">Details</h4>
               <p className="text-lg leading-relaxed mb-4">
                 This project was inspired by a friend who came to me with a problem. Recently laid off from a large Seattle-area tech company, he was looking for a new job. While there were many services to help find jobs, finding a good match with unique skills and experiences required many hours manually parsing job descriptions for a good fit.
               </p>
@@ -197,7 +201,7 @@ export default function ProjectsSection() {
                 With that idea in mind, we worked together to create Job Matcher, a service that scrapes job posting websites and uses natural language processing to compute similarities between the postings and user resumes. It would prioritize skills (for example, Ruby or AWS Sagemaker) and return to the user a set of matched jobs ranked by the machine learning model&apos;s scoring criteria daily.
               </p>
               
-              <h3 className="text-xl font-semibold mb-4">Architecture</h3>
+              <h4 className="text-xl font-semibold mb-4">Architecture</h4>
               <p className="text-lg leading-relaxed mb-8">
                 The application consists of several main components: The flask server handles the client interaction including user identification and metadata persistence (resume, email, etc.). To communicate with the MongoDB cluster, we exposed pathways via FastAPI to allow for new user creation, updating of user details, and getting the latest matched resumes.
               </p>
