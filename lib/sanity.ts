@@ -1,4 +1,5 @@
 import { createClient } from 'next-sanity'
+import imageUrlBuilder, { SanityImageSource } from '@sanity/image-url'
 
 const projectId = 'mvus36sf'
 const dataset = 'production'
@@ -9,10 +10,27 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: false,
+  perspective: 'published', // Use 'previewDrafts' to see drafts
+})
+
+// Client for viewing drafts in development
+export const previewClient = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: false,
+  perspective: 'previewDrafts',
 })
 
 export const config = {
   projectId,
   dataset,
   apiVersion,
+}
+
+// Image URL builder
+const builder = imageUrlBuilder(client)
+
+export function urlFor(source: SanityImageSource) {
+  return builder.image(source)
 }

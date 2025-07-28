@@ -1,13 +1,21 @@
 import type { Metadata } from "next";
-import { Noto_Sans } from "next/font/google";
+import { Noto_Sans, Noto_Serif } from "next/font/google";
 import Header from "@/components/Header";
 import StructuredData from "@/components/StructuredData";
 import "./globals.css";
 
-const raleway = Noto_Sans({ 
+const notoSans = Noto_Sans({ 
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"]
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans"
 });
+
+const notoSerif = Noto_Serif({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-serif"
+});
+
 
 export const metadata: Metadata = {
   title: "Calvin Korver - Senior Software Engineer",
@@ -76,7 +84,7 @@ export default function RootLayout({
         />
         <script defer src="/_vercel/insights/script.js" />
       </head>
-      <body className={raleway.className}>
+      <body className={`${notoSans.variable} ${notoSerif.variable}`}>
         <Header />
         <main className="pt-16">
           {children}

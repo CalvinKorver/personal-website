@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { client } from '../../../../lib/sanity';
+import { client, previewClient } from '../../../../lib/sanity';
 import { PortableText } from '@portabletext/react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+// import { Table } from '@sanity/table';
 
 interface BlogPost {
   _id: string;
@@ -41,7 +44,9 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
   }`;
   
   try {
-    const post = await client.fetch(query, { slug });
+    // Use preview client in development to see drafts
+    const sanityClient = process.env.NODE_ENV === 'development' ? previewClient : client;
+    const post = await sanityClient.fetch(query, { slug });
     return post;
   } catch (error) {
     console.error('Error fetching blog post:', error);
@@ -101,7 +106,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             
             <div className="flex items-center justify-between text-gray-600 text-sm mb-6">
               <div className="flex items-center space-x-4">
-                <span>By {post.author}</span>
                 {post.publishedAt && (
                   <span>
                     {new Date(post.publishedAt).toLocaleDateString('en-US', {
@@ -206,6 +210,50 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                             {value.alt}
                           </p>
                         )}
+                      </div>
+                    ),
+                    code: ({ value }) => (
+                      <div className="my-8">
+                        {value.filename && (
+                          <div className="bg-gray-800 text-gray-200 px-4 py-2 text-sm font-mono rounded-t-lg border-b border-gray-600">
+                            {value.filename}
+                          </div>
+                        )}
+                        <SyntaxHighlighter
+                          language={value.language || 'text'}
+                          style={oneDark}
+                          customStyle={{
+                            margin: 0,
+                            borderRadius: value.filename ? '0 0 0.5rem 0.5rem' : '0.5rem',
+                            fontSize: '0.875rem',
+                            lineHeight: '1.5'
+                          }}
+                          showLineNumbers={true}
+                          wrapLines={true}
+                        >
+                          {value.code || ''}
+                        </SyntaxHighlighter>
+                      </div>
+                    ),
+                    table: ({ value }) => (
+                      <div className="my-8 overflow-x-auto">
+                        <table className="min-w-full border-collapse border border-gray-300">
+                          {value.rows?.map((row: { cells?: string[] }, rowIndex: number) => (
+                            <tr key={rowIndex} className={rowIndex === 0 ? "bg-gray-50" : ""}>
+                              {row.cells?.map((cell: string, cellIndex: number) => {
+                                const Tag = rowIndex === 0 ? "th" : "td";
+                                return (
+                                  <Tag 
+                                    key={cellIndex}
+                                    className="border border-gray-300 px-4 py-2 text-left"
+                                  >
+                                    {cell}
+                                  </Tag>
+                                );
+                              })}
+                            </tr>
+                          ))}
+                        </table>
                       </div>
                     ),
                   },
