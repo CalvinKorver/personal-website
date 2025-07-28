@@ -98,6 +98,9 @@ const blogPost = {
         },
         {
           type: 'code'
+        },
+        {
+          type: 'table'
         }
       ]
     }

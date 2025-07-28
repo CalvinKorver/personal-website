@@ -56,7 +56,8 @@ const code = {
       subtitle: 'language',
       code: 'code'
     },
-    prepare({ title, subtitle, code }) {
+    prepare(selection) {
+      const { title, subtitle, code } = selection
       return {
         title: title || 'Code Block',
         subtitle: subtitle ? `Language: ${subtitle}` : 'No language specified',

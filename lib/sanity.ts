@@ -1,5 +1,6 @@
 import { createClient } from 'next-sanity'
-import imageUrlBuilder, { SanityImageSource } from '@sanity/image-url'
+import imageUrlBuilder from '@sanity/image-url'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 const projectId = 'mvus36sf'
 const dataset = 'production'

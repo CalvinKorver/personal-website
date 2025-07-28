@@ -34,7 +34,15 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
     author,
     categories,
     featured,
-    body,
+    body[] {
+      ...,
+      _type == "image" => {
+        ...,
+        asset-> {
+          url
+        }
+      }
+    },
     mainImage {
       asset-> {
         url
@@ -196,22 +204,29 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     ),
                   },
                   types: {
-                    image: ({ value }) => (
-                      <div className="my-8">
-                        <Image 
-                          src={value.asset.url}
-                          alt={value.alt || ''}
-                          width={800}
-                          height={600}
-                          className="w-full rounded-lg"
-                        />
-                        {value.alt && (
-                          <p className="text-sm text-gray-600 text-center mt-2 italic">
-                            {value.alt}
-                          </p>
-                        )}
-                      </div>
-                    ),
+                    image: ({ value }) => {
+                      // Check if we have a valid image URL
+                      if (!value?.asset?.url) {
+                        return null;
+                      }
+                      
+                      return (
+                        <div className="my-8">
+                          <Image 
+                            src={value.asset.url}
+                            alt={value.alt || ''}
+                            width={800}
+                            height={600}
+                            className="w-full rounded-lg"
+                          />
+                          {value.alt && (
+                            <p className="text-sm text-gray-600 text-center mt-2 italic">
+                              {value.alt}
+                            </p>
+                          )}
+                        </div>
+                      );
+                    },
                     code: ({ value }) => (
                       <div className="my-8">
                         {value.filename && (
