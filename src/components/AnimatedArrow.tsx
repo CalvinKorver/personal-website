@@ -1,0 +1,230 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+
+interface AnimatedArrowProps {
+  targetSelector?: string;
+  className?: string;
+}
+
+export default function AnimatedArrow({ 
+  targetSelector = '[href="/blog"]',
+  className = ''
+}: AnimatedArrowProps) {
+  const arrowRef = useRef<SVGSVGElement>(null);
+  const pathRef = useRef<SVGPathElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const newSvgRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    const arrow = arrowRef.current;
+    const path = pathRef.current;
+    const text = textRef.current;
+    const newSvg = newSvgRef.current;
+    const targetElement = document.querySelector(targetSelector);
+
+    if (!arrow || !path || !text || !newSvg || !targetElement) return;
+
+    let isDissolved = false;
+
+    // Get the bounding box of the target element (blog link)
+    const targetRect = targetElement.getBoundingClientRect();
+    
+    // Position the arrow so its top-right corner aligns with the blog link
+    const arrowWidth = 38.74 * 2; // Updated SVG viewBox width scaled 1.25x
+    const arrowHeight = 50.82 * 2; // Updated SVG viewBox height scaled 1.25x
+    
+    // Calculate position to align top-right corner with blog link
+    const leftPosition = targetRect.left - arrowWidth + targetRect.width -10;
+    const topPosition = targetRect.top + 35;
+
+    // Set initial position for arrow
+    gsap.set(arrow, {
+      position: 'fixed',
+      left: leftPosition,
+      top: topPosition,
+      width: arrowWidth,
+      height: arrowHeight,
+      zIndex: 40,
+      pointerEvents: 'none',
+      opacity: 1
+    });
+
+    // Set initial position for text (below the arrow, initially hidden)
+    gsap.set(text, {
+      position: 'fixed',
+      left: leftPosition,
+      top: topPosition + arrowHeight,
+      zIndex: 40,
+      pointerEvents: 'none',
+      opacity: 0
+    });
+
+    // Set initial position for "new" SVG (next to text, initially hidden)
+    const newWidth = 400 * 0.2; // 60% smaller
+    const newHeight = 400 * 0.2; // 60% smaller
+    gsap.set(newSvg, {
+      position: 'fixed',
+      left: leftPosition - 45,
+      top: topPosition + arrowHeight - 30,
+      width: newWidth,
+      height: newHeight,
+      zIndex: 40,
+      pointerEvents: 'none',
+      opacity: 0,
+      clipPath: 'inset(0 100% 0 0)' // Initially clipped from right, will reveal left to right
+    });
+
+    // Get the total path length for animation
+    const pathLength = path.getTotalLength();
+
+    // Set initial state - arrow path invisible
+    gsap.set(path, {
+      strokeDasharray: pathLength,
+      strokeDashoffset: pathLength,
+      stroke: '#39469c',
+      strokeWidth: 0.75,
+      fill: 'none'
+    });
+
+    // No path setup needed for new2.svg as it's filled, not stroked
+
+    // Create the animation timeline
+    const tl = gsap.timeline({
+      delay: 0.5
+    });
+
+    // Animate the arrow path drawing from start to end (bottom left to top right)
+    tl.to(path, {
+      duration: 2,
+      strokeDashoffset: 0,
+      ease: 'power2.inOut'
+    })
+    // Show "new" SVG and dissolve it in from left to right - starts 1.5 seconds earlier
+    .set(newSvg, { opacity: 1 }, "-=1.5")
+    .to(newSvg, {
+      duration: 1.5,
+      clipPath: 'inset(0 0% 0 0)', // Reveal from left to right
+      ease: 'power2.inOut'
+    }, "-=1.5");
+
+    // Function to dissolve arrow and all elements
+    const dissolveArrow = () => {
+      if (isDissolved) return;
+      isDissolved = true;
+      tl.kill(); // Stop any ongoing animation
+      gsap.to([arrow, text, newSvg], {
+        duration: 1,
+        opacity: 0,
+        ease: 'power2.inOut'
+      });
+    };
+
+    // Add event listeners for scroll and resize
+    const handleScroll = () => dissolveArrow();
+    const handleResize = () => dissolveArrow();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup function
+    return () => {
+      tl.kill();
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+      // Hide all elements when component unmounts (e.g., navigation)
+      if (arrow) arrow.style.display = 'none';
+      if (text) text.style.display = 'none';
+      if (newSvg) newSvg.style.display = 'none';
+    };
+  }, [targetSelector]);
+
+  return (
+    <div>
+      <svg
+        ref={arrowRef}
+        id="animated-arrow"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 38.74 50.82"
+        className={className}
+        style={{ 
+          position: 'fixed',
+          opacity: 0,
+          width: 38.74 * 2,
+          height: 50.82 * 2
+        }}
+      >
+        <defs>
+          <style>
+            {`.animated-arrow-path {
+              fill: none;
+              stroke: #39469c;
+              stroke-miterlimit: 10;
+            }`}
+          </style>
+        </defs>
+        <path
+          ref={pathRef}
+          className="animated-arrow-path"
+          d="M.12,50.34c10.69-2.73,19.61-11.52,22.5-22.17.51-1.86.84-3.82.51-5.72s-1.41-3.75-3.14-4.61c-2.61-1.29-5.91.06-7.77,2.31-.51.61-.96,1.33-1.03,2.12-.11,1.15.62,2.26,1.59,2.87s2.16.8,3.32.82c5.38.09,10.44-3.22,13.41-7.7s4.08-9.98,4.19-15.36c-.66,1.62-1.71,3.08-3.03,4.22-5.55,4.14,2.28-4.54,3.33-5.98.99,3.63,3.2,4.98,4.39,6.16"
+        />
+      </svg>
+      <div
+        ref={textRef}
+        style={{
+          position: 'fixed',
+          left: 0,
+          top: 0,
+          opacity: 0,
+          zIndex: 40,
+          pointerEvents: 'none',
+          color: '#39469c',
+          fontSize: '14px',
+          fontWeight: '500'
+        }}
+        id="blog-text"
+      >
+        Check out my Blog 🌟
+      </div>
+      
+      <svg
+        ref={newSvgRef}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 400 400"
+        style={{ position: 'fixed', left: 0, top: 0, opacity: 0 }}
+      >
+        <defs>
+          <style>
+            {`.st0 {
+              fill: #221f20;
+            }
+            .st0, .st1 {
+              stroke: #293f94;
+              stroke-miterlimit: 10;
+            }
+            .st1 {
+              fill: none;
+            }
+            .st2 {
+              fill: #293f94;
+            }`}
+          </style>
+        </defs>
+        <path className="st0" d="M145.79,306.77"/>
+        <path className="st1" d="M36.22,306.77"/>
+        <path className="st0" d="M142.52,290.86"/>
+        <path className="st1" d="M36.93,343.87"/>
+        <g id="WRXJXi.tif">
+          <g>
+            <path className="st2" d="M105.75,183.86c-3.41,18.68-7.63,37.21-10.87,55.93-.85,4.95-1.94,10.2-2.49,15.16-.48,4.32-1.42,6.86,3.61,8.17,3.59.94,6.49,1.46,9.3-1.36,3.63-3.65,7.98-10.07,11.23-14.34,13.7-18.01,27.1-37.22,39.29-56.28,5.41-8.46,12.55-18.91,16.37-28.07,1.54-3.68,2.71-6.03-1.89-7.65-2.44-.86-7.55-1.43-9.71,0-2.34,1.56-5.36,9.79-6.97,12.81-2.43,4.54-5.39,9.11-8.15,13.46-11.08,17.49-23.31,34.28-35.3,51.14l-.07-1.28,13.94-67.95c-1.88-4.52-6.56-1.6-9.65-1.46-1.44.07-2.81-.77-4.46-.43-3.17.66-12.29,12.44-14.66,15.48-13.37,17.21-25.94,36.71-37.09,55.45-4.86,8.17-10.89,17.83-14.62,26.47-1.23,2.85-3.5,6.58.66,7.97,1.69.56,7.43-.02,9.21-.54.64-.19,1.3-.48,1.71-1.03,10.84-23.65,25.77-45.19,39.87-66.96l10.72-14.69ZM347.77,155.98c-4.06,0-5.12,2.08-7.5,4.91-8.76,10.41-17.31,23.98-24.8,35.46-6.08,9.31-12.84,19.38-18,29.18-1.45,2.76-5.8,10.5-4.49,13.32,1.05,2.26,4.03.72,5.48.45,2.07-.39,3.31.05,5.27-1.43,9.89-14.53,18.93-29.76,28.49-44.56,7.55-11.69,15.32-23.23,23.04-34.8.43-.72.19-1.38-.61-1.67-.96-.35-5.72-.87-6.88-.87ZM225.75,240.76c-2.27,6.41-8.08,21.83,2.07,23.95.6.13,2.07.37,2.62.36,7.77-.2,22.94-16.06,27.89-22.04,6.56-7.92,19.64-26.15,18.58-36.5-.85-8.36-12.88-6.54-13.06.33-.07,2.51,1.35,2.97.43,6.51-2.39,9.14-17.85,29.06-25.12,35.46-1.06.93-4.62,4.05-6.05,3.15-.56-1.22-.15-2.9.09-4.23.87-4.83,3.34-10.27,5.29-14.8,3.24-7.53,7-14.85,10.79-22.1.42-1.23-1.62-2.32-2.66-2.34-.9-.02-6.28,1-6.94,1.52-8.3,10.32-16.71,20.67-25.66,30.44-2.81,3.06-6.32,7.13-9.44,9.74-.55.46-1.24,1.15-1.99,1.21-.42-.48,1.79-5.06,2.17-5.89,3.76-8.08,8.59-15.94,12.6-23.92,1.17-2.33,4.58-8.42,4.96-10.58.57-3.26-5.69-4.33-8.02-4.04-3.09.39-11.92,7.81-14.46,10.2-1.98,1.86-5.42,4.55-2.89,7.15,1.67,1.72,3.82,2.16,5.78.61.2-.06.22.27.15.45-.62,1.5-2.87,4.47-3.81,6.24-2.35,4.39-4.55,9.01-6.24,13.7-1.24-1.15-.05-4.27-2.81-3.9-9.5,6.63-19.97,18.09-32.83,15.02-2.58-.62-5-2.22-4.88-5.18.09-2.17,5.52-5.76,7.35-6.98,4.34-2.89,8.39-4.35,12.77-6.71,3.65-1.97,6.03-4.32,2.32-7.96-2.6-2.55-7.53.23-10.6.91-6.49,1.44-4.08-1.6-1.01-4.36,1.62-1.45,13.8-9.97,15.07-8.83-2.13,7.89,6.94,4.59,10.36,1.68,3.12-2.66,6.97-9.41,1.82-11.87-8.23-3.93-26.09,3.75-32.73,9.29-3.04,2.54-7.42,7.64-7.79,11.69s-.21,8.51,3.97,10.36c-5.5,2.48-12.16,5.98-13.26,12.61-2.56,15.52,17.87,17.19,28.55,14.23,7.76-2.15,12.67-6.02,19.03-10.51.41-.29.78-.73,1.31-.66-2.62,7.25,0,13.95,8.66,11.54,6.32-1.76,15.61-11.18,20.12-16.1,2.6-2.84,4.81-6.03,7.45-8.83ZM278.85,267.43c1.2,1.27,3.78,1.21,5.4.88,3.05-.63,6.96-4.79,8.32-7.51,3.91-7.85-2.15-11-8.61-6.78-3.44,2.25-8.63,9.68-5.1,13.41Z"/>
+            <path className="st2" d="M105.75,183.86l-10.72,14.69c-14.1,21.77-29.03,43.32-39.87,66.96-.42.55-1.07.84-1.71,1.03-1.78.52-7.52,1.11-9.21.54-4.16-1.39-1.89-5.12-.66-7.97,3.73-8.64,9.76-18.3,14.62-26.47,11.15-18.74,23.72-38.23,37.09-55.45,2.36-3.04,11.49-14.82,14.66-15.48,1.65-.34,3.01.5,4.46.43,3.1-.14,7.77-3.06,9.65,1.46l-13.94,67.95.07,1.28c12-16.86,24.23-33.65,35.3-51.14,2.76-4.36,5.72-8.93,8.15-13.46,1.62-3.02,4.63-11.25,6.97-12.81,2.16-1.44,7.27-.87,9.71,0,4.61,1.62,3.43,3.97,1.89,7.65-3.82,9.15-10.96,19.6-16.37,28.07-12.19,19.06-25.59,38.28-39.29,56.28-3.25,4.27-7.6,10.69-11.23,14.34-2.81,2.82-5.71,2.31-9.3,1.36-5.03-1.32-4.09-3.85-3.61-8.17.55-4.96,1.63-10.21,2.49-15.16,3.23-18.71,7.46-37.25,10.87-55.93Z"/>
+            <path className="st2" d="M225.75,240.76c-2.64,2.79-4.86,5.99-7.45,8.83-4.51,4.92-13.8,14.35-20.12,16.1-8.67,2.41-11.28-4.3-8.66-11.54-.53-.07-.9.38-1.31.66-6.35,4.48-11.26,8.36-19.03,10.51-10.68,2.96-31.11,1.3-28.55-14.23,1.09-6.63,7.75-10.14,13.26-12.61-4.17-1.85-4.34-6.33-3.97-10.36s4.75-9.16,7.79-11.69c6.64-5.54,24.5-13.22,32.73-9.29,5.15,2.46,1.3,9.21-1.82,11.87-3.42,2.92-12.49,6.22-10.36-1.68-1.27-1.14-13.45,7.38-15.07,8.83-3.07,2.76-5.49,5.79,1.01,4.36,3.07-.68,8-3.46,10.6-.91,3.71,3.64,1.33,5.99-2.32,7.96-4.38,2.36-8.43,3.82-12.77,6.71-1.83,1.22-7.27,4.81-7.35,6.98-.12,2.96,2.3,4.56,4.88,5.18,12.86,3.07,23.33-8.39,32.83-15.02,2.76-.37,1.57,2.75,2.81,3.9,1.69-4.69,3.89-9.31,6.24-13.7.94-1.76,3.19-4.74,3.81-6.24.07-.18.06-.51-.15-.45-1.97,1.55-4.11,1.1-5.78-.61-2.53-2.6.91-5.29,2.89-7.15,2.54-2.39,11.37-9.81,14.46-10.2,2.33-.29,8.59.77,8.02,4.04-.38,2.16-3.79,8.25-4.96,10.58-4.01,7.98-8.85,15.84-12.6,23.92-.39.83-2.59,5.41-2.17,5.89.75-.06,1.44-.75,1.99-1.21,3.12-2.61,6.63-6.68,9.44-9.74,8.95-9.77,17.36-20.12,25.66-30.44.65-.52,6.04-1.54,6.94-1.52,1.04.02,3.07,1.11,2.66,2.34-3.8,7.26-7.55,14.57-10.79,22.1-1.95,4.53-4.43,9.96-5.29,14.8-.24,1.33-.66,3.01-.09,4.23,1.43.91,4.99-2.22,6.05-3.15,7.27-6.39,22.73-26.32,25.12-35.46.93-3.54-.49-4-.43-6.51.19-6.87,12.21-8.7,13.06-.33,1.05,10.35-12.03,28.59-18.58,36.5-4.95,5.97-20.12,21.84-27.89,22.04-.55.01-2.02-.23-2.62-.36-10.14-2.12-4.34-17.55-2.07-23.95Z"/>
+            <path className="st2" d="M347.77,155.98c1.16,0,5.92.52,6.88.87.8.29,1.03.95.61,1.67-7.73,11.57-15.49,23.12-23.04,34.8-9.56,14.8-18.6,30.03-28.49,44.56-1.96,1.48-3.19,1.04-5.27,1.43-1.45.27-4.43,1.81-5.48-.45-1.31-2.82,3.04-10.56,4.49-13.32,5.16-9.8,11.92-19.87,18-29.18,7.5-11.48,16.04-25.06,24.8-35.46,2.38-2.83,3.44-4.92,7.5-4.91Z"/>
+            <path className="st2" d="M278.85,267.43c-3.52-3.72,1.66-11.16,5.1-13.41,6.46-4.22,12.53-1.07,8.61,6.78-1.36,2.72-5.27,6.88-8.32,7.51-1.62.33-4.19.39-5.4-.88Z"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  );
+}
