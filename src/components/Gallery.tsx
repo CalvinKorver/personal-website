@@ -44,8 +44,10 @@ export default function Gallery({ images, display = 'stacked', zoom = false }: G
     setCurrentSlide((prev) => (prev - 1 + images.length) % images.length)
   }
 
+  let galleryContent
+
   if (display === 'carousel') {
-    return (
+    galleryContent = (
       <div className="relative w-full max-w-4xl mx-auto">
         <div className="relative overflow-hidden rounded-lg bg-gray-100">
           <div 
@@ -100,10 +102,8 @@ export default function Gallery({ images, display = 'stacked', zoom = false }: G
         )}
       </div>
     )
-  }
-
-  if (display === 'inline') {
-    return (
+  } else if (display === 'inline') {
+    galleryContent = (
       <div className="flex flex-wrap gap-4 justify-center">
         {images.map((image, index) => (
           <div key={image._key} className="flex-shrink-0">
@@ -119,31 +119,30 @@ export default function Gallery({ images, display = 'stacked', zoom = false }: G
         ))}
       </div>
     )
+  } else {
+    // Default: stacked
+    galleryContent = (
+      <div className="space-y-6">
+        {images.map((image, index) => (
+          <div key={image._key} className="w-full">
+            <Image
+              src={urlFor(image).width(800).url()}
+              alt={image.alt || `Gallery image ${index + 1}`}
+              width={800}
+              height={600}
+              className={`w-full h-auto rounded-lg ${zoom ? 'cursor-zoom-in' : ''}`}
+              onClick={() => handleImageClick(index)}
+            />
+          </div>
+        ))}
+      </div>
+    )
   }
 
-  // Default: stacked
-  return (
-    <div className="space-y-6">
-      {images.map((image, index) => (
-        <div key={image._key} className="w-full">
-          <Image
-            src={urlFor(image).width(800).url()}
-            alt={image.alt || `Gallery image ${index + 1}`}
-            width={800}
-            height={600}
-            className={`w-full h-auto rounded-lg ${zoom ? 'cursor-zoom-in' : ''}`}
-            onClick={() => handleImageClick(index)}
-          />
-        </div>
-      ))}
-    </div>
-  )
-
-  // Zoom modal (rendered when selectedImage is not null)
   return (
     <>
-      {/* Gallery content above */}
-      {selectedImage !== null && (
+      {galleryContent}
+      {zoom && selectedImage !== null && (
         <div 
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={closeModal}
