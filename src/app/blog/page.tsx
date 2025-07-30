@@ -74,9 +74,21 @@ export default async function Blog() {
   const regularPosts = posts.filter(post => !post.featured);
 
   return (
-    <div className="min-h-screen bg-white py-16 px-8 lg:px-16">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-5xl font-bold mb-16 text-center">Blog</h1>
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Takes up top 1/3 of viewport */}
+      <div className="h-[33vh] min-h-[300px] flex items-center justify-center px-8 lg:px-16 f">
+        <div className="text-center">
+          <h1 className="text-5xl lg:text-5xl xl:text-7xl font-medium text-gray-900 font-serif leading-tight">
+            Work Book 
+            <br/>
+            <span className="text-lg block mt-2 font-sans">(Some thoughts on <span className="text-blue-700">Engineering</span> and <span className="text-blue-700">ML</span>)</span>
+          </h1>
+        </div>
+      </div>
+      
+      {/* Content Section */}
+      <div className="py-16 px-8 lg:px-16">
+        <div className="max-w-6xl mx-auto">
         
         {posts.length === 0 ? (
           <div className="bg-gray-50 rounded-lg p-12 shadow-sm text-center">
@@ -103,11 +115,13 @@ export default async function Blog() {
                     <div className="relative">
                       {featuredPost.mainImage && (
                         <Image
-                          src={urlFor(featuredPost.mainImage).width(1200).height(600).auto('format').quality(90).url()}
+                          src={urlFor(featuredPost.mainImage).width(1200).height(600).auto('format').quality(95).dpr(2).url()}
                           alt={featuredPost.mainImage.alt || featuredPost.title}
                           width={1200}
                           height={600}
                           className="w-full h-96 object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                          priority
                         />
                       )}
                       <div className="absolute top-6 left-6">
@@ -158,15 +172,16 @@ export default async function Blog() {
             {regularPosts.length > 0 && (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {regularPosts.map((post) => (
-                  <article key={post._id} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <article key={post._id} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <Link href={`/blog/${post.slug.current}`}>
                       {post.mainImage && (
                         <Image
-                          src={urlFor(post.mainImage).width(400).height(250).auto('format').quality(85).url()}
+                          src={urlFor(post.mainImage).width(400).height(250).auto('format').quality(90).dpr(2).url()}
                           alt={post.mainImage.alt || post.title}
                           width={400}
                           height={250}
                           className="w-full h-48 object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />
                       )}
                       <div className="p-6">
@@ -209,6 +224,7 @@ export default async function Blog() {
             )}
           </div>
         )}
+        </div>
       </div>
     </div>
   );

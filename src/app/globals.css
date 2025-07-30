@@ -24,9 +24,7 @@ body {
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 
-h1, h2 {
-  font-family: var(--font-serif);
-}
+/* Removed global h1, h2 serif rule to allow mixed fonts */
 
 p {
   font-weight: 300;

@@ -100,6 +100,9 @@ const blogPost = {
           type: 'code'
         },
         {
+          type: 'gallery'
+        },
+        {
           type: 'table'
         }
       ]

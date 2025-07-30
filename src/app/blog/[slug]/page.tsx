@@ -4,6 +4,7 @@ import { client, previewClient } from '../../../../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import Gallery from '../../../components/Gallery';
 // import { Table } from '@sanity/table';
 
 interface BlogPost {
@@ -41,6 +42,17 @@ async function getBlogPost(slug: string): Promise<BlogPost | null> {
         asset-> {
           url
         }
+      },
+      _type == "gallery" => {
+        ...,
+        images[] {
+          _key,
+          asset-> {
+            _ref,
+            url
+          },
+          alt
+        }
       }
     },
     mainImage {
@@ -70,7 +82,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     return (
       <div className="min-h-screen bg-gray-50 py-16 px-8 lg:px-16">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg p-8 shadow-sm text-center">
+          <div className="text-center">
             <h1 className="text-2xl font-bold mb-4">Post Not Found</h1>
             <p className="text-gray-600 mb-6">
               The blog post you&apos;re looking for doesn&apos;t exist or has been removed.
@@ -90,28 +102,27 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-8 lg:px-16">
       <div className="max-w-4xl mx-auto">
-        <article className="bg-white rounded-lg p-8 lg:p-12 shadow-sm">
+        <article className="p-8 lg:p-12">
+
+      {/* Main Image */}
+          {post.mainImage && (
+            <div className="mb-8">
+              <Image 
+                src={post.mainImage.asset.url}
+                alt={post.mainImage.alt || post.title}
+                width={800}
+                height={400}
+                className="w-full h-64 lg:h-96 object-cover rounded-lg"
+              />
+            </div>
+          )}
+
           {/* Header */}
           <header className="mb-8">
-            <div className="mb-4">
-              <Link 
-                href="/blog"
-                className="text-blue-600 hover:underline font-medium text-sm"
-              >
-                ← Back to Blog
-              </Link>
-            </div>
-            
             <h1 className="text-4xl font-bold mb-4 leading-tight">
               {post.title}
             </h1>
-            
-            {post.featured && (
-              <span className="inline-block bg-yellow-100 text-yellow-800 text-sm px-3 py-1 rounded-full mb-4">
-                Featured Post
-              </span>
-            )}
-            
+
             <div className="flex items-center justify-between text-gray-600 text-sm mb-6">
               <div className="flex items-center space-x-4">
                 {post.publishedAt && (
@@ -138,26 +149,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 </div>
               )}
             </div>
-            
-            {post.excerpt && (
-              <p className="text-xl text-gray-700 leading-relaxed italic border-l-4 border-blue-500 pl-6">
-                {post.excerpt}
-              </p>
-            )}
+          
           </header>
-
-          {/* Main Image */}
-          {post.mainImage && (
-            <div className="mb-8">
-              <Image 
-                src={post.mainImage.asset.url}
-                alt={post.mainImage.alt || post.title}
-                width={800}
-                height={400}
-                className="w-full h-64 lg:h-96 object-cover rounded-lg"
-              />
-            </div>
-          )}
 
           {/* Content */}
           <div className="prose prose-lg max-w-none">
@@ -250,27 +243,63 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                         </SyntaxHighlighter>
                       </div>
                     ),
-                    table: ({ value }) => (
-                      <div className="my-8 overflow-x-auto">
-                        <table className="min-w-full border-collapse border border-gray-300">
-                          {value.rows?.map((row: { cells?: string[] }, rowIndex: number) => (
-                            <tr key={rowIndex} className={rowIndex === 0 ? "bg-gray-50" : ""}>
-                              {row.cells?.map((cell: string, cellIndex: number) => {
-                                const Tag = rowIndex === 0 ? "th" : "td";
-                                return (
-                                  <Tag 
-                                    key={cellIndex}
-                                    className="border border-gray-300 px-4 py-2 text-left"
-                                  >
-                                    {cell}
-                                  </Tag>
-                                );
-                              })}
-                            </tr>
-                          ))}
-                        </table>
-                      </div>
-                    ),
+                    gallery: ({ value }) => {
+                      if (!value?.images || value.images.length === 0) {
+                        return null;
+                      }
+                      
+                      return (
+                        <div className="my-8">
+                          <Gallery
+                            images={value.images}
+                            display={value.display || 'stacked'}
+                            zoom={value.zoom || false}
+                          />
+                        </div>
+                      );
+                    },
+                    table: ({ value }) => {
+                      const rows = value.rows || [];
+                      const headerRow = rows[0];
+                      const bodyRows = rows.slice(1);
+                      
+                      return (
+                        <div className="my-8 overflow-x-auto">
+                          <table className="min-w-full border-collapse border border-gray-300">
+                            {headerRow && (
+                              <thead>
+                                <tr className="bg-gray-50">
+                                  {headerRow.cells?.map((cell: string, cellIndex: number) => (
+                                    <th 
+                                      key={cellIndex}
+                                      className="border border-gray-300 px-4 py-2 text-left font-semibold"
+                                    >
+                                      {cell}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                            )}
+                            {bodyRows.length > 0 && (
+                              <tbody>
+                                {bodyRows.map((row: { cells?: string[] }, rowIndex: number) => (
+                                  <tr key={rowIndex}>
+                                    {row.cells?.map((cell: string, cellIndex: number) => (
+                                      <td 
+                                        key={cellIndex}
+                                        className="border border-gray-300 px-4 py-2"
+                                      >
+                                        {cell}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            )}
+                          </table>
+                        </div>
+                      );
+                    },
                   },
                 }}
               />
