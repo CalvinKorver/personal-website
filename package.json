@@ -17,6 +17,7 @@
     "@sanity/table": "^1.1.4",
     "@sanity/vision": "^4.1.1",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "gsap": "^3.13.0",
     "next": "15.4.4",
     "next-sanity": "^10.0.4",
     "react": "19.1.0",
