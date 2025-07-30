@@ -95,6 +95,15 @@ const blogPost = {
               title: 'Alternative Text'
             }
           ]
+        },
+        {
+          type: 'code'
+        },
+        {
+          type: 'gallery'
+        },
+        {
+          type: 'table'
         }
       ]
     }
