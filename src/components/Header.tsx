@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import AnimatedArrow from './AnimatedArrow';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,9 +15,11 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md">
-      <div className="mx-auto px-6">
-        <div className="flex items-center h-12" style={{ gap: '24px' }}>
+    <>
+      <AnimatedArrow />
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md">
+        <div className="mx-auto px-6">
+          <div className="flex items-center h-12" style={{ gap: '24px' }}>
           {/* Logo/Name */}
           <Link 
             href="/" 
@@ -82,7 +85,7 @@ export default function Header() {
             </button>
             
             {isMenuOpen && (
-              <div className="absolute top-full right-0 mt-2 w-48 bg-card-bg border border-border rounded-lg shadow-lg py-2 z-50">
+              <div className="absolute top-full right-0 mt-2 w-48 bg-white border border-border rounded-lg shadow-lg py-2 z-50">
                 {navigationItems.map((item) => (
                   <div key={item.label} className="px-4 py-2">
                     {item.external ? (
@@ -109,8 +112,9 @@ export default function Header() {
               </div>
             )}
           </div>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }

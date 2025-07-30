@@ -102,7 +102,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-8 lg:px-16">
       <div className="max-w-4xl mx-auto">
-        <article className="p-8 lg:p-12">
+        <article className="md:p-8 lg:p-12 p-0">
 
       {/* Main Image */}
           {post.mainImage && (
