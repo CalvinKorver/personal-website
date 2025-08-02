@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import { gsap } from 'gsap';
 
 interface AnimatedArrowProps {
@@ -12,12 +13,19 @@ export default function AnimatedArrow({
   targetSelector = '[href="/blog"]',
   className = ''
 }: AnimatedArrowProps) {
+  const pathname = usePathname();
   const arrowRef = useRef<SVGSVGElement>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const newSvgRef = useRef<SVGSVGElement>(null);
 
+  // Check if we're on a blog page
+  const isOnBlogPage = pathname.startsWith('/blog');
+
   useEffect(() => {
+    // Don't run animation on blog pages
+    if (isOnBlogPage) return;
+
     const arrow = arrowRef.current;
     const path = pathRef.current;
     const text = textRef.current;
@@ -138,7 +146,12 @@ export default function AnimatedArrow({
       if (text) text.style.display = 'none';
       if (newSvg) newSvg.style.display = 'none';
     };
-  }, [targetSelector]);
+  }, [targetSelector, isOnBlogPage]);
+
+  // Don't render anything on blog pages
+  if (isOnBlogPage) {
+    return null;
+  }
 
   return (
     <div>
