@@ -3,15 +3,15 @@ import Image from 'next/image';
 export default function ProjectsSection() {
   return (
     <div id="projects-section" className="bg-background py-24 px-8 lg:px-24">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <header className="text-center mb-20">
-          <h2 className="text-5xl lg:text-6xl font-semibold mb-6 tracking-tight">Projects</h2>
+          <h2 className="text-5xl lg:text-6xl font-semibold mb-6 tracking-tight">Work & Projects</h2>
         </header>
 
         <div className="space-y-24">
           {/* CLEAR Project */}
-          <section className="bg-card-bg rounded-2xl p-12 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Subscriptions & Payments | CLEAR</h3>
+          <section className="py-6">
+            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight pt-4 border-t border-border">Subscriptions & Payments | CLEAR</h3>
             
             <div className="mb-8">
               <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
@@ -99,8 +99,8 @@ export default function ProjectsSection() {
           </section>
 
           {/* Workday Project */}
-          <section className="bg-card-bg rounded-2xl p-12 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Time Anomalies | Workday</h3>
+          <section className="py-6">
+            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight pt-4 border-t border-border">Time Anomalies | Workday</h3>
             
             <div className="mb-8">
               <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
@@ -157,8 +157,8 @@ export default function ProjectsSection() {
           </section>
 
           {/* Job Matcher Project */}
-          <section className="bg-card-bg rounded-2xl p-12 shadow-lg border border-border hover:shadow-xl transition-all duration-300">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight">Job Matcher | Project</h3>
+          <section className="py-6">
+            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight pt-4 border-t border-border">Job Matcher | Project</h3>
             
             <div className="mb-8">
               <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
@@ -206,7 +206,7 @@ export default function ProjectsSection() {
                 The application consists of several main components: The flask server handles the client interaction including user identification and metadata persistence (resume, email, etc.). To communicate with the MongoDB cluster, we exposed pathways via FastAPI to allow for new user creation, updating of user details, and getting the latest matched resumes.
               </p>
               
-              <div className="mt-12 text-center">
+              <div className="mt-12 p-6 text-center">
                 <Image
                   src="/JobFinder.png"
                   alt="Job Finder Architecture Diagram"
