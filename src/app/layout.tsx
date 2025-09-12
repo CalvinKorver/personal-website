@@ -86,7 +86,7 @@ export default function RootLayout({
       </head>
       <body className={`${notoSans.variable} ${notoSerif.variable}`}>
         <Header />
-        <main className="pt-16">
+        <main>
           {children}
         </main>
       </body>
