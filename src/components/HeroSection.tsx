@@ -34,14 +34,7 @@ export default function HeroSection() {
             <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
               <span className="text-2xl">☕</span>
             </div>
-            <span className="">Training for an Ironman & finding new coffee shops in my free time</span>
-          </div>
-        
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
-              <span className="text-2xl">📧</span>
-            </div>
-            <span className="">Want to say hello? <a className="text-blue-700 underline md:text-inherit md:no-underline md:hover:text-blue-700 md:hover:font-semibold transition-all duration-300 ease-in-out" href="mailto:calvin.korver@gmail.com">Email me</a></span>
+            <span className="">Training for an Ironman 70.3</span>
           </div>
         </div>
       </div>
