@@ -34,10 +34,10 @@ export default function HeroSection() {
             <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
               <span className="text-2xl">☕</span>
             </div>
-            <span className="">Training for an Ironman & finding new coffee shops in my free time</span>
+            <span className="">Training for an Ironman 70.3</span>
           </div>
         </div>
       </div>
-    </div>
+ </div>   
   );
 }
