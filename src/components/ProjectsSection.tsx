@@ -20,7 +20,7 @@ export default function ProjectsSection() {
                   <a href="https://stripe.com/newsroom/news/clear-and-stripe" className="text-blue-700 hover:underline">Stripe partners with CLEAR</a>
                 </li>
                 <li>
-                  <a href="https://www.clearme.com/face-first-technology-enve-pods" className="text-blue-700 hover:underline">CLEAR's Face First Technology</a>
+                  <a href="https://www.clearme.com/face-first-technology-enve-pods" className="text-blue-700 hover:underline">CLEAR&apos;s Face First Technology</a>
                 </li>
               </ul>
             </div>
