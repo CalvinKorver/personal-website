@@ -8,20 +8,21 @@ export default function ProjectsSection() {
           <h2 className="text-5xl lg:text-6xl font-semibold mb-6 tracking-tight">Work & Projects</h2>
         </header>
 
-        <div className="space-y-24">
+        <div className="space-y-12">
           {/* CLEAR Project */}
           <section className="py-6">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight pt-4 border-t border-border">Subscriptions & Payments | CLEAR</h3>
-            
-            <div className="mb-8">
-              <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {['Java', 'K8s', 'Dropwizard', 'Stripe', 'Github Actions', 'Datadog', 'Browserstack'].map((tech) => (
-                  <span key={tech} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
-                    {tech}
-                  </span>
-                ))}
-              </div>
+            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight pt-8 border-t border-border">Subscriptions & Payments | CLEAR</h3>
+
+            <span className="font-semibold text-foreground text-lg">Press</span>
+            <div className="m-4">
+              <ul className="list-disc list-inside space-y-2 text-lg">
+                <li>
+                  <a href="https://stripe.com/newsroom/news/clear-and-stripe" className="text-blue-700 hover:underline">Stripe partners with CLEAR</a>
+                </li>
+                <li>
+                  <a href="https://www.clearme.com/face-first-technology-enve-pods" className="text-blue-700 hover:underline">CLEAR's Face First Technology</a>
+                </li>
+              </ul>
             </div>
             
             <div className="space-y-6 text-foreground">
@@ -95,23 +96,23 @@ export default function ProjectsSection() {
                   </p>
                 </div>
               </div>
+              
             </div>
-          </section>
-
-          {/* Workday Project */}
-          <section className="py-6">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight pt-4 border-t border-border">Time Anomalies | Workday</h3>
-            
-            <div className="mb-8">
-              <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
+                        <div className="mt-8">
+              <span className="font-semibold text-foreground text-lg">Tools & frameworks</span>
               <div className="flex flex-wrap gap-2 mt-3">
-                {['Jupyter', 'Xpresso (Java-based OOP)'].map((tech) => (
+                {['Java', 'K8s', 'Dropwizard', 'Stripe', 'Github Actions', 'Datadog', 'Browserstack'].map((tech) => (
                   <span key={tech} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
                     {tech}
                   </span>
                 ))}
               </div>
             </div>
+          </section>
+
+          {/* Workday Project */}
+          <section className="py-6">
+            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight pt-8 border-t border-border">Time Anomalies | Workday</h3>
             
             <div className="space-y-6 text-foreground">
               <h4 className="text-xl font-semibold mb-4">Overview</h4>
@@ -154,22 +155,22 @@ export default function ProjectsSection() {
                 />
               </div>
             </div>
-          </section>
-
-          {/* Job Matcher Project */}
-          <section className="py-6">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight pt-4 border-t border-border">Job Matcher | Project</h3>
             
-            <div className="mb-8">
-              <span className="font-semibold text-foreground text-lg">Tools & frameworks:</span>
+            <div className="mt-8">
+              <span className="font-semibold text-foreground text-lg">Tools & frameworks</span>
               <div className="flex flex-wrap gap-2 mt-3">
-                {['Python', 'NLP', 'SpaCy', 'Scrapy', 'AWS EC2'].map((tech) => (
+                {['Jupyter', 'Xpresso (Java-based OOP)'].map((tech) => (
                   <span key={tech} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
                     {tech}
                   </span>
                 ))}
               </div>
             </div>
+          </section>
+
+          {/* Job Matcher Project */}
+          <section className="py-6">
+            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight pt-8 border-t border-border">Job Matcher | Project</h3>
             
             <div className="space-y-6 text-foreground">
               <h4 className="text-xl font-semibold mb-4">Overview</h4>
@@ -214,6 +215,17 @@ export default function ProjectsSection() {
                   height={400}
                   className="rounded-xl mx-auto shadow-lg"
                 />
+              </div>
+            </div>
+            
+            <div className="mt-8">
+              <span className="font-semibold text-foreground text-lg">Tools & frameworks</span>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {['Python', 'NLP', 'SpaCy', 'Scrapy', 'AWS EC2'].map((tech) => (
+                  <span key={tech} className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
           </section>
