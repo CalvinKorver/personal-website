@@ -16,12 +16,30 @@
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(ellipse 85% 55% at 50% -15%, rgba(191, 219, 254, 0.4), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 100% 0%, rgba(233, 213, 255, 0.22), transparent 50%),
+    radial-gradient(ellipse 70% 45% at 0% 100%, rgba(219, 234, 254, 0.28), transparent 50%),
+    var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   line-height: 1.6;
   letter-spacing: -0.01em;
   font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-grid-mask-fade {
+    mask-image: linear-gradient(to bottom, white, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, white, transparent);
+  }
 }
 
 /* Removed global h1, h2 serif rule to allow mixed fonts */

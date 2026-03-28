@@ -85,8 +85,12 @@ export default function RootLayout({
         <script defer src="/_vercel/insights/script.js" />
       </head>
       <body className={`${notoSans.variable} ${notoSerif.variable}`}>
+        <div
+          className="fixed inset-0 z-0 pointer-events-none bg-grid-pattern opacity-40 bg-grid-mask-fade"
+          aria-hidden
+        />
         <Header />
-        <main className="pt-16">
+        <main className="relative z-10 pt-16">
           {children}
         </main>
       </body>
