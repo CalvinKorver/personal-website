@@ -5,17 +5,17 @@ import { client, previewClient, urlFor } from '../../../lib/sanity';
 
 export const metadata: Metadata = {
   title: "Blog | Calvin Korver",
-  description: "Thoughts and insights on software engineering, payments technology, and building modern web applications.",
+  description: "Thoughts and insights on software engineering, trust & safety, and building modern web applications.",
   openGraph: {
     title: "Blog | Calvin Korver",
-    description: "Thoughts and insights on software engineering, payments technology, and building modern web applications.",
+    description: "Thoughts and insights on software engineering, trust & safety, and building modern web applications.",
     url: 'https://calvinkorver.com/blog',
     type: 'website',
   },
   twitter: {
     card: 'summary',
     title: "Blog | Calvin Korver",
-    description: "Thoughts and insights on software engineering, payments technology, and building modern web applications.",
+    description: "Thoughts and insights on software engineering, trust & safety, and building modern web applications.",
   },
   alternates: {
     canonical: '/blog',

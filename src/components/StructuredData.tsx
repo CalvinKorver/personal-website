@@ -6,12 +6,12 @@ export default function StructuredData() {
     "jobTitle": "Senior Software Engineer",
     "worksFor": {
       "@type": "Organization",
-      "name": "CLEAR"
+      "name": "Roblox"
     },
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "New York",
-      "addressRegion": "NY",
+      "addressLocality": "San Francisco",
+      "addressRegion": "CA",
       "addressCountry": "US"
     },
     "url": "https://calvinkorver.com",
@@ -25,14 +25,14 @@ export default function StructuredData() {
     },
     "knowsAbout": [
       "Software Engineering",
-      "Payments Technology", 
+      "Trust & Safety",
       "Web Development",
       "TypeScript",
       "React",
       "Next.js",
       "Node.js"
     ],
-    "description": "Senior Software Engineer building modern payments platform at CLEAR. Living and working in NYC."
+    "description": "Senior Software Engineer in Trust & Safety at Roblox. Living and working in San Francisco."
   };
 
   return (

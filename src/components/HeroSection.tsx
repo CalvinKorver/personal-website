@@ -9,7 +9,7 @@ export default function HeroSection() {
           </h1>
           
           <p className="text-xl lg:text-xl text-muted max-w-2xl leading-relaxed font-light">
-            Software engineer building modern payment systems and combining machine learning with real-world applications.
+            Software engineer in Trust &amp; Safety at Roblox, combining machine learning with real-world applications.
           </p>
         </div>
         
@@ -18,7 +18,7 @@ export default function HeroSection() {
             <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center">
               <span className="text-2xl">📍</span>
             </div>
-            <span className="">Living and working in NYC</span>
+            <span className="">Living and working in San Francisco</span>
           </div>
           
           <div className="flex items-center gap-4">
@@ -26,7 +26,7 @@ export default function HeroSection() {
               <span className="text-2xl">💻</span>
             </div>
             <span className="">
-              Building a modern payments platform @ <a href="https://www.clearme.com/" className="text-accent hover:underline font-normal transition-colors">CLEAR</a>
+              Trust &amp; Safety @ <a href="https://www.roblox.com/" className="text-accent hover:underline font-normal transition-colors">Roblox</a>
             </span>
           </div>
           
