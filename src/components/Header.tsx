@@ -37,7 +37,7 @@ export default function Header() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:text-accent transition-colors font-light"
+                  className="text-muted hover:text-accent transition-colors font-light"
                 >
                   {item.label}
                 </a>
@@ -45,7 +45,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-foreground hover:text-accent transition-colors font-light"
+                  className="text-muted hover:text-accent transition-colors font-light"
                 >
                   {item.label}
                 </Link>
@@ -56,7 +56,7 @@ export default function Header() {
           {/* Mobile Navigation Menu */}
           <div className="md:hidden ml-auto relative">
             <button
-              className="flex items-center justify-center w-10 h-10 text-foreground hover:text-accent transition-colors"
+              className="flex items-center justify-center w-10 h-10 text-muted hover:text-accent transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle navigation menu"
             >
@@ -93,7 +93,7 @@ export default function Header() {
                         href={item.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block text-foreground hover:text-accent transition-colors font-medium"
+                        className="block text-muted hover:text-accent transition-colors font-medium"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.label}
@@ -101,7 +101,7 @@ export default function Header() {
                     ) : (
                       <Link
                         href={item.href}
-                        className="block text-foreground hover:text-accent transition-colors font-medium"
+                        className="block text-muted hover:text-accent transition-colors font-medium"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.label}
