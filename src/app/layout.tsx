@@ -19,8 +19,8 @@ const notoSerif = Noto_Serif({
 
 export const metadata: Metadata = {
   title: "Calvin Korver - Senior Software Engineer",
-  description: "Building a modern payments platform @ CLEAR. Living and working in NYC.",
-  keywords: ["Calvin Korver", "Software Engineer", "CLEAR", "NYC", "Payments", "Full Stack Developer"],
+  description: "Trust & Safety at Roblox. Living and working in San Francisco.",
+  keywords: ["Calvin Korver", "Software Engineer", "Roblox", "Trust & Safety", "San Francisco", "Full Stack Developer"],
   authors: [{ name: "Calvin Korver" }],
   creator: "Calvin Korver",
   metadataBase: new URL('https://calvinkorver.com'),
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Calvin Korver - Senior Software Engineer",
-    description: "Building a modern payments platform @ CLEAR. Living and working in NYC.",
+    description: "Trust & Safety at Roblox. Living and working in San Francisco.",
     url: 'https://calvinkorver.com',
     siteName: 'Calvin Korver',
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Calvin Korver - Senior Software Engineer",
-    description: "Building a modern payments platform @ CLEAR. Living and working in NYC.",
+    description: "Trust & Safety at Roblox. Living and working in San Francisco.",
     images: ['/cal-logo.png'],
   },
   robots: {
