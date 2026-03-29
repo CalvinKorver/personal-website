@@ -9,9 +9,81 @@ export default function ProjectsSection() {
         </header>
 
         <div className="space-y-12">
+          {/* Roblox */}
+          <section className="py-6">
+            <h3 className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight pt-8 border-t border-border">
+              Content Suitability | Roblox
+            </h3>
+            <p className="text-lg text-muted mb-6">
+              Senior Software Engineer, Trust &amp; Safety · San Francisco, CA
+            </p>
+
+            <div className="space-y-6 text-foreground">
+              <h4 className="text-xl font-semibold mb-4">Overview</h4>
+              <p className="text-lg leading-relaxed mb-4">
+                On the Content Suitability team, I built a proof of concept using foundation models
+                to classify experiences (ie social hangouts) to support age-appropriate surfacing and
+                protect minors from inappropriate content. The approach extended to additional policy dimensions
+                including blood and violence, then was handed off for full production implementation.
+              </p>
+              <p className="text-lg leading-relaxed mb-4">
+                I designed and shipped auto-sequestration, an automated system to detect and apply consequences
+                when experiences routinely violate content policy, replacing a workflow of individual moderator
+                takedowns and one-off creator messages. It eliminated on the order of ~180 manual takedowns per
+                week and saved roughly ~90 moderator hours weekly, with a fully automated creator notification
+                flow.
+              </p>
+
+              <h4 className="text-xl font-semibold mb-4">Highlights</h4>
+              <ul className="list-disc list-inside space-y-3 text-lg">
+                <li className="leading-relaxed">
+                  Foundation-model POC for experience classification and age-gating; expanded to blood and
+                  violence categories; handed off for production.
+                </li>
+                <li className="leading-relaxed">
+                  Auto-sequestration at scale: automated detection, consequences, and end-to-end creator
+                  notifications.
+                </li>
+                <li className="leading-relaxed">
+                  Championed agentic development across the team-structured agent configuration, Cursor skills,
+                  and workflow automation (including PR creation) to speed up repetitive engineering work.
+                </li>
+              </ul>
+
+              <div className="mt-24 text-center">
+                <Image
+                  src="/roblox_logo.png"
+                  alt="Roblox logo"
+                  width={683}
+                  height={242}
+                  className="rounded-xl mx-auto shadow-lg h-auto max-w-full w-full max-w-md"
+                />
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <span className="font-semibold text-foreground text-lg">Tools & frameworks</span>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {['Python', 'Foundation models', 'ML pipelines', 'Cursor', 'GitHub'].map((tech) => (
+                  <span
+                    key={tech}
+                    className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </section>
+
           {/* CLEAR Project */}
           <section className="py-6">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight pt-8 border-t border-border">Subscriptions & Payments | CLEAR</h3>
+            <h3 className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight pt-8 border-t border-border">
+              Subscriptions & Payments | CLEAR
+            </h3>
+            <p className="text-lg text-muted mb-6">
+              Software Engineer, Subscriptions &amp; Payments · New York City, NY
+            </p>
 
             <span className="font-semibold text-foreground text-lg">Press</span>
             <div className="m-4">
@@ -112,8 +184,13 @@ export default function ProjectsSection() {
 
           {/* Workday Project */}
           <section className="py-6">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-6 tracking-tight pt-8 border-t border-border">Time Anomalies | Workday</h3>
-            
+            <h3 className="text-3xl lg:text-4xl font-bold mb-2 tracking-tight pt-8 border-t border-border">
+              Time Anomalies | Workday
+            </h3>
+            <p className="text-lg text-muted mb-6">
+              Software Engineer, Time &amp; Scheduling · Pleasanton, CA
+            </p>
+
             <div className="space-y-6 text-foreground">
               <h4 className="text-xl font-semibold mb-4">Overview</h4>
               <p className="text-lg leading-relaxed mb-4">
